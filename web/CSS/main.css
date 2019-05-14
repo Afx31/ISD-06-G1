@@ -1,0 +1,141 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12/05/2019, 11:05:09 PM
+    Author     : WILL
+*/
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #ddd;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgb(209, 9, 9);
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: whitesmoke;
+  color: darkgrey;
+  border-radius: 5px;
+}
+
+.content {
+  background-color: #ddd;
+  padding: 80px;
+  margin: auto;
+  min-height: 100%;
+}
+
+.centerbox {
+  margin: auto;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 25px;
+  width: 400px;
+  height: 550px;
+  text-align: center;
+}
+
+centerboxhome {
+  margin: auto;
+  background-color: #fff;
+  border-radius: 25px;
+  margin-top: 25px;
+  padding: 25px;
+  width: 75%;
+  height: 100%;
+  text-align: center;
+}
+input[type=text] {
+  width: 100%;
+  background-color: lightgrey;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 0px;
+  border-radius: 9px;
+  font-size: 16px;
+}
+
+input[type=password] {
+  width: 100%;
+  background-color: lightgrey;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 0px;
+  border-radius: 9px;
+  font-size: 16px;
+}
+
+input[type=text]:focus {
+  outline: none;
+  background-color: rgb(252, 101, 101);
+}
+
+input[type=text]:focus::placeholder {
+  color: transparent;
+}
+
+input[type=password]:focus {
+  outline: none;
+  background-color: grey;
+}
+
+input[type=password]:focus {
+  outline: none;
+  background-color: rgb(252, 101, 101);
+}
+
+input[type=password]:focus::placeholder {
+  color: transparent;
+}
+
+input[type=submit] {
+    display: block
+}
+
+button {
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 10px;
+  width: 150px;
+  border-radius: 9px;
+}
+
+button:hover{
+  color: rgb(252, 101, 101);
+}
+
+.footer {
+  background-color: #f1f1f1;
+  padding: 5px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.tos {
+  font-size: 12px;
+}
