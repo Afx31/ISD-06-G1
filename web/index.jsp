@@ -1,36 +1,64 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import='java.sql.*'%>
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>The Archive | Login</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="CSS/main.css">
-    </head>
-    <body>
-        <div class="topnav">
-          <a><b>The Archive</b></a>
-        </div>
-        <div class="content">
-          <div class="centerbox">
-            <h1>Welcome</h1>
-            <h2>Give us some details to get started!</h2>
-            <form action="home.jsp" method="post">
-              <input type="text" id="name" name="r_name" placeholder="Full Name">
-              <input type="text" id="email" name="r_email" placeholder="Email">
-              <input type="password" id="password" name="r_password" placeholder="Password">
-              <input type="password" id="confirm" name="r_confirm" placeholder="Confirm">
-              <label class="tos" for="tos">Agree to Terms of Service</label>
-              <input type="checkbox" name="r_tos">
-              <a style="font-size: 12px" href="login.jsp" >Already Registered?</a><br>  
-              <button type="submit">Register</button>
-            </form>
-          </div>
-        </div>
-        <div class="footer">
-          <p>Introduction to Software Development - 13217702, 12924991, 12747717, 13208297</p>
-        </div>
-    </body>
+<head>
+    <title>The Archive | Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/main.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="login.jsp">Log Out</a>
+        <a>My Account</a>
+        <a>My Cart</a>
+        <a>Find Movies</a>
+        <a><b>The Archive</b></a>
+    </div>
+    <div class="centerboxhome">
+        <h1> Sit back, relax and enjoy your shows!</h1>
+        <h2 style="text-align: left"> Here are some of the latest titles:</h2>
+        <table>
+            <tr>
+                <td><img src="media/wintersoldier.jpg" alt="Captain America: Winter Soldier" width="100" height="auto"></td>
+                <td><a href="" style="font-size: 24px" style="text-decoration: none"><h4 style="text-align: center">Captain America: The Winter Soldier</h4></a></td>
+                <td>
+                    <i style="text-align: right">As Steve Rogers struggles to embrace his role in the modern world, he teams up with a fellow Avenger and S.H.I.E.L.D agent, Black Widow, to battle a new threat from history: an assassin known as the Winter Soldier.</i>
+                    <i style="float:right">- IMDB</i>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="media/rhapsody.jpg" alt="Rhapsody" width="100" height="auto"></td>
+                <td><a href="" style="font-size: 24px" style="text-decoration: none"><h4 style="text-align: center">Bohemian Rhapsody</h4></a></td>
+                <td>
+                    <i style="text-align: right">The story of the legendary rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid (1985).</i>
+                    <i style="float:right">- IMDB</i>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="media/shawshank.jpg" alt="Shawshank" width="100" height="auto"></td>
+                <td><a href="" style="font-size: 24px" style="text-decoration: none"><h4 style="text-align: center">The Shawshank Redemption</h4></a></td>
+                <td>
+                    <i style="text-align: right">Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.</i>
+                    <i style="float:right">- IMDB</i>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="media/needforspeed.jpg" alt="Need for Speed" width="100" height="auto"></td>
+                <td><a href="" style="font-size: 24px" style="text-decoration: none"><h4 style="text-align: center">Need for Speed</h4></a></td>
+                <td>
+                    <i style="text-align: right">Fresh from prison, a street racer who was framed by a wealthy business associate joins a cross country race with revenge in mind. His ex-partner, learning of the plan, places a massive bounty on his head as the race begins.</i>
+                    <i style="float:right">- IMDB</i>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="media/footloose.jpg" alt="Footloose" width="100" height="auto"></td>
+                <td><a href="" style="font-size: 24px" style="text-decoration: none"><h4 style="text-align: center">Footloose (1984)</h4></a></td>
+                <td>
+                    <i style="text-align: right">A city teenager moves to a small town where rock music and dancing have been banned, and his rebellious spirit shakes up the populace.</i>
+                    <i style="float:right">- IMDB</i>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
 </html>
