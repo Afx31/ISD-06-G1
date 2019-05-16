@@ -6,8 +6,16 @@ import java.util.ArrayList;
 
 public class Catalogue implements Serializable {
     private ArrayList<Movie> movies;
-    private final Cart cart;
+    //private final Cart cart;
 
+    
+    
+    
+    
+    
+    
+    
+    /*
     public Catalogue(Cart cart) {
         this.cart = cart;
     }
@@ -22,5 +30,7 @@ public class Catalogue implements Serializable {
     
     public void removeMovie(Movie movie) {
         movies.remove(movie);
+
     }
+    */
 }

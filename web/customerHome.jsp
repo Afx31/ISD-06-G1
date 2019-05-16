@@ -6,12 +6,38 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+<html lang="en">
+<head>
+    <title>The Archive | Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/main.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="login.jsp">Log Out</a>
+        <a>My Account</a>
+        <a>My Cart</a>
+        <a>Find Movies</a>
+        <a><b>The Archive</b></a>
+    </div>
+    <div>
+        <h1> Lets find some movies</h1>
+        <h2 style="text-align: left"> Here are some titles:</h2>
+        <input type="text" id="filter" name="search" placeholder="Search...">
+         <table>
+            <tr>
+                <td><img src="media/wintersoldier.jpg" alt="Captain America: Winter Soldier" width="100" height="auto"></td>
+                <td><a href="" style="font-size: 24px" style="text-decoration: none"><h4 style="text-align: center">Captain America: The Winter Soldier</h4></a></td>
+                <td>
+                    <i style="text-align: right">As Steve Rogers struggles to embrace his role in the modern world, he teams up with a fellow Avenger and S.H.I.E.L.D agent, Black Widow, to battle a new threat from history: an assassin known as the Winter Soldier.</i>
+                    <i style="float:right">- IMDB</i>
+                </td>
+            </tr>
+         </table>
+    </div>
+    
+    
+    
+</body>
 </html>
