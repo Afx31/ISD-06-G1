@@ -12,13 +12,13 @@ public class dbManager {
     }
 
     public ResultSet findMovie(String title) throws SQLException{
-        String sql = "SELECT title FROM archive.movie WHERE title =" + title;
+        String sql = "SELECT title FROM archive.movie WHERE title = " + title;
         ResultSet rs = st.executeQuery(sql);
         return rs;
     }
     
-    public void addMovie(String ID, String Genre, String Director, double Price, int stock, String Title, String Published){
-    
+    public void addMovie(String ID, String Genre, String Director, double Price, int Stock, String Title, String Published) throws SQLException{
+        st.executeUpdate("INSERT INTO Movie VALUES (" + ID + ", " + Genre + ", " + Director + ", " + Price + ", " + Stock + ", " + Title + ", " + Published + ")");
     }
 
 //Find student by ID in the database

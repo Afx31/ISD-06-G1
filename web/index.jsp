@@ -12,6 +12,7 @@
         <a>My Account</a>
         <a>My Cart</a>
         <a href="customerHome.jsp">Find Movies</a>
+        <a href="staffHome.jsp">Staff Functions</a>
         <a><b>The Archive</b></a>
     </div>
     <div class="centerboxhome">

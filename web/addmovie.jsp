@@ -1,0 +1,48 @@
+<%-- 
+    Document   : customerHome
+    Created on : 15/05/2019, 11:16:19 AM
+    Author     : jbrien
+--%>
+
+<%@page import="model.dao.*"%>
+<%@page import="controller.*"%>
+<%@page import="java.sql.*"%>
+<%@page contentType="text/html" import="java.util.*" import="model.*" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Archive | Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/main.css">
+</head>
+<%
+    String id = request.getParameter("id");
+    String title = request.getParameter("title");
+    String genre = request.getParameter("genre");
+    String director = request.getParameter("director");
+    double price = Double.parseDouble(request.getParameter("price"));
+    int stock = Integer.parseInt(request.getParameter("stock"));
+    String published = request.getParameter("published");
+        
+    dbManager manager = (dbManager)session.getAttribute("manager");
+    manager.addMovie(id, genre, director, price, stock, title, published);
+%>
+
+<body>
+    <div class="topnav">
+        <a href="login.jsp">Log Out</a>
+        <a>My Account</a>
+        <a>My Cart</a>
+        <a>Find Movies</a>
+        <a><b>The Archive</b></a>
+    </div>
+    <div>
+        
+        
+    </div>
+    
+    
+    
+</body>
+</html>
