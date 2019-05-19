@@ -7,13 +7,9 @@
     <link rel="stylesheet" href="CSS/main.css">
 </head>
 <body>
-    <div class="topnav">
-        <!--<a href="login.jsp">Log Out</a>-->
-        <a>My Account</a>
-        <a>My Cart</a>
-        <a href="customerHome.jsp">Find Movies</a>
-        <a><b>The Archive</b></a>
-    </div>
+    
+    <jsp:include page="header.jsp"  flush="true"/>
+    
     <div class="centerboxhome">
         <h1> Sit back, relax and enjoy your shows!</h1>
         <h2 style="text-align: left"> Here are some of the latest titles:</h2>
