@@ -10,14 +10,15 @@
     <body>
         
         <div class="topnav">
-          <a><b>The Archive</b></a>
+          <!--<a><b>The Archive</b></a>-->
+          <a href="index.jsp" ><b>The Archive</b></a>
         </div>
 
         <div class="content">
           <div class="centerbox">
             <h1>Welcome Back</h1>
             <h2>The Archive Awaits you!</h2>
-            <form action="home.jsp" method="post">
+            <form action="customerHome.jsp" method="post">
               <input type="email" id="email" name="email" placeholder="Email">
               <input type="password" id="password" name="password" placeholder="Password">
               <a style="font-size: 12px" href="index.jsp" >Not Registered?</a><br>

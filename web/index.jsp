@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="topnav">
-        <a href="login.jsp">Log Out</a>
+        <!--<a href="login.jsp">Log Out</a>-->
         <a>My Account</a>
         <a>My Cart</a>
         <a href="customerHome.jsp">Find Movies</a>
