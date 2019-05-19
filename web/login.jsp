@@ -11,7 +11,7 @@
         
         <div class="topnav">
           <!--<a><b>The Archive</b></a>-->
-          <a href="index.jsp" ><b>The Archive</b></a>
+          <a href="index.jsp"><b>The Archive</b></a>
         </div>
 
         <div class="content">
