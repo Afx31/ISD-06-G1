@@ -293,3 +293,16 @@ ERROR XJ004: Database 'ArchiveDBArchiveDB' not found.
 ============= end nested exception, level (1) ===========
 Cleanup action completed
 Sun May 19 22:49:47 AEST 2019 Thread[DRDAConnThread_2,5,main] (DATABASE = ArchiveDBArchiveDB), (DRDAID = {6}), Database 'ArchiveDBArchiveDB' not found.
+----------------------------------------------------------------
+Sun May 19 22:51:03 AEST 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016a-d020-164f-000065abacaf 
+on database directory I:\netbeans\netbeans projects\ISD-06-G1\db\ArchiveDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_172/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_172-b11
+user.dir=C:\Program Files\Java\jdk1.8.0_172\db
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=I:\netbeans\netbeans projects\ISD-06-G1\db
+Database Class Loader started - derby.database.classpath=''
