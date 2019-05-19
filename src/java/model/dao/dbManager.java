@@ -1,7 +1,7 @@
 package model.dao;
 
 import java.sql.*;
-import model.Movie;
+import model.*;
 
 public class dbManager {
 
@@ -22,13 +22,26 @@ public class dbManager {
     }
 
 //Find student by ID in the database
-    public Movie findUser(String ID, String password) throws SQLException {
+    public Users findUser(String email, String password) throws SQLException {
         //setup the select sql query string
         //execute this query using the statement field
         //add the results to a ResultSet
         //search the ResultSet for a student using the parameters
-        
-        return null;
+        String sql = "SELECT * FROM archive.users WHERE EMAIL = '"+ email +"' AND PASSWORD = '"+ password +"' ";
+        ResultSet rs = st.executeQuery(sql);
+        Users user = null;
+        if(rs.next()) {
+            System.out.println("after "+ rs.getString("EMAIL"));
+            String id = rs.getString("ID");
+            String fn = rs.getString("FIRSTNAME");
+            String ln = rs.getString("LASTNAME");
+            String dob = rs.getString("DOB");
+            String pw = rs.getString("PASSWORD");
+            String rsemail = rs.getString("EMAIL");
+            String role = rs.getString("ROLE");
+            user = new Users(id, fn, ln, dob, pw, rsemail, role);
+        }
+        return user;
     }
 
     //Check if a student exist in the database

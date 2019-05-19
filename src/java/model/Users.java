@@ -18,9 +18,9 @@ public class Users implements Serializable{
     private String dob;    
     private String password; 
     private String email;
-    private char role;
+    private String role;
     
-    public Users(String ID, String firstName,String lastName,String dob,String password,String email,char role) {
+    public Users(String ID, String firstName,String lastName,String dob,String password,String email,String role) {
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -100,11 +100,11 @@ public class Users implements Serializable{
         this.email = email;
     }
 
-    public char getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(char role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }
