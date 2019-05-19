@@ -52,11 +52,11 @@ public class Users implements Serializable{
         return this.password.equals(password.trim());
     }
     
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -107,7 +107,4 @@ public class Users implements Serializable{
     public void setRole(char role) {
         this.role = role;
     }
-    
-    
-    
 }
