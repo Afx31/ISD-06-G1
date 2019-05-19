@@ -13,8 +13,12 @@
         <a>My Cart</a>
         <a href="customerHome.jsp">Find Movies</a>
         <a href="staffHome.jsp">Staff Functions</a>
+        <a href="login.jsp">Login</a>
+        <a href="register.jsp">Register</a>
         <a><b>The Archive</b></a>
     </div>
+    <%--<jsp:include page="header.jsp"  flush="true"/>--%>
+    
     <div class="centerboxhome">
         <h1> Sit back, relax and enjoy your shows!</h1>
         <h2 style="text-align: left"> Here are some of the latest titles:</h2>
@@ -61,5 +65,6 @@
             </tr>
         </table>
     </div>
+    <jsp:include page="/ConnServlet" flush="true" />
 </body>
 </html>

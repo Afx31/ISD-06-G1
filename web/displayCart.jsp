@@ -1,7 +1,7 @@
 <%-- 
     Document   : customerHome
     Created on : 15/05/2019, 11:16:19 AM
-    Author     : jbrien
+    Author     : William Mitchell
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,9 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>The Archive | Cart</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        
+        <jsp:include page="header.jsp"  flush="true"/>
+        
+        <p> testttttttttttttt </p>
+        
+        
     </body>
 </html>
