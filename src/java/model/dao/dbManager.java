@@ -57,9 +57,11 @@ public class dbManager {
     }
 
     //Add a student-data into the database
-    public void addUser(String ID, String email, String name, String password, String dob, String favcol) throws SQLException {        
-        //code for add-operation
+    public void addUser(String firstname, String lastname, String email, String password) throws SQLException {        
+            String sql = "INSERT INTO archive.users VALUES('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "')";
+            st.executeUpdate(sql);
     }
+
 
     //update a student details in the database
     public void updateUser(String ID, String email, String name, String password, String dob, String favcol) throws SQLException {
