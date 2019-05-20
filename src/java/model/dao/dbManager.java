@@ -17,8 +17,10 @@ public class dbManager {
         return rs;
     }
     
-    public void addMovie(String ID, String Genre, String Director, double Price, int Stock, String Title, String Published) throws SQLException{
-        st.executeUpdate("INSERT INTO archive.movie VALUES (" + ID + ", " + Genre + ", " + Director + ", " + Price + ", " + Stock + ", " + Title + ", " + Published + ")");
+    public void addMovie(String ID, String Genre, String Director, String Price, String Stock, String Title, String Published) throws SQLException{
+        //String sql = "INSERT INTO archive.movie VALUES ('" + ID + "', " + Genre + "', )";
+        String sql = "INSERT INTO archive.movie VALUES('"+ID+"', '"+Genre+"', '"+Director+"', '"+Price+"', '"+Stock+"', '"+Title+"', '"+Published+"')";
+        st.executeUpdate(sql);
     }
 
 //Find student by ID in the database

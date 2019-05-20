@@ -22,8 +22,8 @@
     String title = request.getParameter("title");
     String genre = request.getParameter("genre");
     String director = request.getParameter("director");
-    double price = Double.parseDouble(request.getParameter("price"));
-    int stock = Integer.parseInt(request.getParameter("stock"));
+    String price = request.getParameter("price");
+    String stock = request.getParameter("stock");
     String published = request.getParameter("published");
 %>
 
