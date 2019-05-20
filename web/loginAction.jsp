@@ -29,7 +29,11 @@
             //Users user = new Users();
             if (user != null) {
                 session.setAttribute("userLogin", user);
-                response.sendRedirect("customerHome.jsp");                        
+                if(user.getRole().equalsIgnoreCase("c")) {
+                    response.sendRedirect("customerHome.jsp");  
+                } else if(user.getRole().equalsIgnoreCase("r") || user.getRole().equalsIgnoreCase("a")) {
+                    response.sendRedirect("staffHome.jsp");  
+                }                   
             }else{
                 session.setAttribute("wrongInfo", "Incorrect Email or Password");
                 response.sendRedirect("login.jsp");                               

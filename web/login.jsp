@@ -28,7 +28,7 @@
             <form action="loginAction.jsp" method="post">
               <input type="email" id="email" name="email" placeholder="Email">
               <input type="password" id="password" name="password" placeholder="Password">
-              <a style="font-size: 12px" href="index.jsp" >Not Registered?</a><br>
+              <a style="font-size: 12px" href="register.jsp" >Not Registered?</a><br>
               <button type="submit">Sign In</button><br>
               <div class="wrongInfo">
                 <c:if test="${wrongInfo!=null}"> 
