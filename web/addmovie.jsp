@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="CSS/main.css">
 </head>
+
 <%
     String id = request.getParameter("id");
     String title = request.getParameter("title");
@@ -24,9 +25,6 @@
     double price = Double.parseDouble(request.getParameter("price"));
     int stock = Integer.parseInt(request.getParameter("stock"));
     String published = request.getParameter("published");
-        
-    dbManager manager = (dbManager)session.getAttribute("manager");
-    manager.addMovie(id, genre, director, price, stock, title, published);
 %>
 
 <body>
@@ -38,7 +36,12 @@
         <a><b>The Archive</b></a>
     </div>
     <div>
-        
+        <%
+            
+            dbManager manager = (dbManager)session.getAttribute("manager");
+            manager.addMovie(id,genre,director,price,stock,title,published);
+        %>
+        <p>Movie Added!</p>
         
     </div>
     

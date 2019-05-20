@@ -18,7 +18,7 @@ public class dbManager {
     }
     
     public void addMovie(String ID, String Genre, String Director, double Price, int Stock, String Title, String Published) throws SQLException{
-        st.executeUpdate("INSERT INTO Movie VALUES (" + ID + ", " + Genre + ", " + Director + ", " + Price + ", " + Stock + ", " + Title + ", " + Published + ")");
+        st.executeUpdate("INSERT INTO archive.movie VALUES (" + ID + ", " + Genre + ", " + Director + ", " + Price + ", " + Stock + ", " + Title + ", " + Published + ")");
     }
 
 //Find student by ID in the database
