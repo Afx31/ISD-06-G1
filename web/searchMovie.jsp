@@ -11,20 +11,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>The Archive | Home</title>
+    <title>The Archive | Searching Movies</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="CSS/main.css">
 </head>
 
 <%
-    String id = request.getParameter("id");
-    String title = request.getParameter("title");
-    String genre = request.getParameter("genre");
-    String director = request.getParameter("director");
-    String price = request.getParameter("price");
-    String stock = request.getParameter("stock");
-    String published = request.getParameter("published");
+ 
 %>
 
 <body>
@@ -36,13 +30,8 @@
         <a><b>The Archive</b></a>
     </div>
     <div>
-        <%
-            
-            dbManager manager = (dbManager)session.getAttribute("manager");
-            manager.addMovie(id,genre,director,price,stock,title,published);
-        %>
-        <p>Movie Added!</p>
-        <a href="staffHome.jsp">Back to Add another movie</a>
+        <p>Here are the results</p>
+        <a href="customerHome.jsp">Back to search again</a>
         
     </div>
     
