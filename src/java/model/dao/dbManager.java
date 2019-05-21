@@ -1,6 +1,8 @@
 package model.dao;
 
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import model.*;
 
 public class dbManager {
@@ -28,7 +30,7 @@ public class dbManager {
         st.executeUpdate(sql);
     }
 
-//Find student by ID in the database
+    //Find student by ID in the database
     public Users findUser(String email) throws SQLException {
         //setup the select sql query string
         //execute this query using the statement field
@@ -54,11 +56,11 @@ public class dbManager {
     public Users[] findAllUsers() throws SQLException{
         String sql = "SELECT * FROM archive.users";
         ResultSet rs = st.executeQuery(sql);
-        int rscount = 0;
-        if(rs.last()) {
-            rscount = rs.getRow();
-            rs.beforeFirst();
-        }
+        int rscount = countRows(sql);
+//        if(rs.last()) {
+//            rscount = rs.getRow();
+//            rs.beforeFirst();
+//        }
         Users[] users = new Users[rscount];
         int i = 0;
         while(rs.next()) {
@@ -77,14 +79,32 @@ public class dbManager {
 
     //Check if a student exist in the database
     public boolean checkUser(String email, String password) throws SQLException {
-       //setup the select sql query string
-        //execute this query using the statement field
-        //add the results to a ResultSet
-        //search the ResultSet for a student using the parameters
-        //verify if the student exists
         String sql = "SELECT * FROM archive.users WHERE EMAIL = '"+ email +"' AND PASSWORD = '"+ password +"' ";
         ResultSet rs = st.executeQuery(sql);
         return rs.next();
+    }
+    
+    public void addLog(String ID, String event) throws SQLException{
+        DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime ldt = LocalDateTime.now();
+        String sqlcount = "SELECT * FROM archive.accesslog";
+        int rscount = countRows(sqlcount);
+        rscount++;// so last row number + 1 = new id
+        String sql = "INSERT INTO archive.accesslog VALUES('"+rscount+"', '"+ID+"', '"+dft.format(ldt)+"', '"+event+"')";
+        st.executeUpdate(sql);
+    }
+    
+    public int countRows(String sql) throws SQLException{
+        ResultSet rs = st.executeQuery(sql);
+        int rscount = 0;
+        while(rs.next()) {
+            rscount++;
+        }
+        return rscount;
+    }
+    
+    public AccessLog[] findAccessLogs() throws SQLException{
+        return null;
     }
 
     //Add a student-data into the database
