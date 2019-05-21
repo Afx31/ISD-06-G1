@@ -20,7 +20,6 @@
         <a href="register.jsp">Register</a>
         <a><b>The Archive</b></a>
     </div>
-    <%--<jsp:include page="header.jsp"  flush="true"/>--%>
     
     <div class="centerboxhome">
         <h1> Sit back, relax and enjoy your shows!</h1>

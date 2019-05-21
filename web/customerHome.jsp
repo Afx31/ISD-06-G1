@@ -17,7 +17,7 @@
     <div class="topnav">
         <a href="login.jsp">Log Out</a>
         <a>My Account</a>
-        <a>My Cart</a>
+        <a href="cart.jsp">My Cart</a>
         <a>Find Movies</a>
         <a><b>The Archive</b></a>
     </div>
