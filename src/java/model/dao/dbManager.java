@@ -12,7 +12,12 @@ public class dbManager {
     }
 
     public ResultSet findMovie(String title) throws SQLException{
-        String sql = "SELECT title FROM archive.movie WHERE title = " + title;
+        String sql;
+        if (title == ""){
+            sql = "SELECT * FROM archive.movie";
+        } else {
+            sql = "SELECT * FROM archive.movie WHERE lower(title) LIKE '%" + title.toLowerCase() + "%'";
+        }
         ResultSet rs = st.executeQuery(sql);
         return rs;
     }

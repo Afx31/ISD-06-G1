@@ -18,7 +18,10 @@
 </head>
 
 <%
- 
+    String search = request.getParameter("search");
+    //System.out.println(search);
+    dbManager manager = (dbManager)session.getAttribute("manager");
+    ResultSet rs = manager.findMovie(search);
 %>
 
 <body>
@@ -30,12 +33,32 @@
         <a><b>The Archive</b></a>
     </div>
     <div>
-        <p>Here are the results</p>
+        <h1>Here are the results</h1>
+        <table style="width: 100%">
+            <tr>
+                <td><b>Title</b></td>
+                <td><b>Genre</b></td>
+                <td><b>Director</b></td>
+                <td><b>Cost</b></td>
+                <td><b>In Stock?</b></td>
+            </tr>
+            <%
+            String inStock;
+            while(rs.next()){
+            if(Integer.parseInt(rs.getString(5)) > 0){
+                inStock = "Yes";
+            } else 
+                inStock = "No";
+            %>
+            <tr>
+                <td><h3><%=rs.getString(6)%></h3></td>
+                <td><p><%=rs.getString(2)%></p></td>
+                <td><p><%=rs.getString(3)%></p></td>
+                <td><p><%=rs.getString(4)%></p></td>
+                <td><p><%=inStock%></p></td>
+            </tr><%}%> 
+        </table>
         <a href="customerHome.jsp">Back to search again</a>
-        
-    </div>
-    
-    
-    
+    </div> 
 </body>
 </html>

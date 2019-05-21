@@ -27,12 +27,14 @@
         <form action="searchMovie.jsp" method="post">
             <table>
                 <tr>
-                    <td><input type="text" name="search" placeholder="Search Title..."></td>
-                    <td><button type="submit">Search</button></td>
+                    <td><input style="width:750px" type="text" name="search" placeholder="Search Title... Leave blank for all movies"></td>
+                    <td><button style="margin-top:0px" type="submit">Search</button></td>
                 </tr>
             </table>
         </form>
-         <table>
+         
+        
+        <table>
             <tr>
                 <td><img src="media/wintersoldier.jpg" alt="Captain America: Winter Soldier" width="100" height="auto"></td>
                 <td><a href="" style="font-size: 24px" style="text-decoration: none"><h4 style="text-align: center">Captain America: The Winter Soldier</h4></a></td>
