@@ -24,16 +24,16 @@ public class dbManager {
     }
 
 //Find student by ID in the database
-    public Users findUser(String email, String password) throws SQLException {
+    public Users findUser(String email) throws SQLException {
         //setup the select sql query string
         //execute this query using the statement field
         //add the results to a ResultSet
         //search the ResultSet for a student using the parameters
-        String sql = "SELECT * FROM archive.users WHERE EMAIL = '"+ email +"' AND PASSWORD = '"+ password +"' ";
+        String sql = "SELECT * FROM archive.users WHERE EMAIL = '"+ email +"' ";
         ResultSet rs = st.executeQuery(sql);
         Users user = null;
         if(rs.next()) {
-            System.out.println("after "+ rs.getString("EMAIL"));
+            //System.out.println("after "+ rs.getString("EMAIL"));
             String id = rs.getString("ID");
             String fn = rs.getString("FIRSTNAME");
             String ln = rs.getString("LASTNAME");
@@ -45,15 +45,41 @@ public class dbManager {
         }
         return user;
     }
+    
+    public Users[] findAllUsers() throws SQLException{
+        String sql = "SELECT * FROM archive.users";
+        ResultSet rs = st.executeQuery(sql);
+        int rscount = 0;
+        if(rs.last()) {
+            rscount = rs.getRow();
+            rs.beforeFirst();
+        }
+        Users[] users = new Users[rscount];
+        int i = 0;
+        while(rs.next()) {
+            String id = rs.getString("ID");
+            String fn = rs.getString("FIRSTNAME");
+            String ln = rs.getString("LASTNAME");
+            String dob = rs.getString("DOB");
+            String pw = rs.getString("PASSWORD");
+            String rsemail = rs.getString("EMAIL");
+            String role = rs.getString("ROLE");
+            users[i] = new Users(id, fn, ln, dob, pw, rsemail, role); 
+            i++;
+        }
+        return users;
+    }
 
     //Check if a student exist in the database
-    public boolean checkUser(String ID, String password) throws SQLException {
+    public boolean checkUser(String email, String password) throws SQLException {
        //setup the select sql query string
         //execute this query using the statement field
         //add the results to a ResultSet
         //search the ResultSet for a student using the parameters
         //verify if the student exists
-        return false;
+        String sql = "SELECT * FROM archive.users WHERE EMAIL = '"+ email +"' AND PASSWORD = '"+ password +"' ";
+        ResultSet rs = st.executeQuery(sql);
+        return rs.next();
     }
 
     //Add a student-data into the database
@@ -64,8 +90,11 @@ public class dbManager {
 
 
     //update a student details in the database
-    public void updateUser(String ID, String email, String name, String password, String dob, String favcol) throws SQLException {
-        //code for update-operation
+    public void updateUser(String ID, String firstName,String lastName,String dob,String password,String email,String role) throws SQLException {
+        //code for update-operation        
+        String sql = "UPDATE archive.users SET ID='"+ID+"', FIRSTNAME='"+firstName+"', LASTNAME='"+lastName+"', DOB='"+dob+"', PASSWORD='"+password+"', EMAIL='"+email+"' WHERE ID='"+ID+"'";
+        //missing role
+        st.executeUpdate(sql);
     }
     
     //delete a student from the database
