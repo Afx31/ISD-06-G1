@@ -87,10 +87,13 @@ public class dbManager {
     public void addLog(String ID, String event) throws SQLException{
         DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime ldt = LocalDateTime.now();
-        String sqlcount = "SELECT * FROM archive.accesslog";
-        int rscount = countRows(sqlcount);
-        rscount++;// so last row number + 1 = new id
-        String sql = "INSERT INTO archive.accesslog VALUES('"+rscount+"', '"+ID+"', '"+dft.format(ldt)+"', '"+event+"')";
+        int rsCount = 0;
+        String sqlcount = "SELECT * FROM archive.accesslog ORDER BY ID DESC";
+        ResultSet rs = st.executeQuery(sqlcount);
+        if(rs.next()) {
+            rsCount = Integer.parseInt(rs.getString("ID")) + 1;
+        }
+        String sql = "INSERT INTO archive.accesslog VALUES('"+rsCount+"', '"+ID+"', '"+dft.format(ldt)+"', '"+event+"')";
         st.executeUpdate(sql);
     }
     
