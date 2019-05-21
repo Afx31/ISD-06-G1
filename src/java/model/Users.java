@@ -40,18 +40,6 @@ public class Users implements Serializable{
         this.email = email;
     }
     
-    public boolean matchEmail(String email){
-        return this.email.equals(email.trim());
-    }
-    //might not need match id
-    public boolean matchID(String ID){
-        return this.ID.equals(ID.trim());
-    }
-    
-    public boolean matchPassword(String password){
-        return this.password.equals(password.trim());
-    }
-    
     public String getID() {
         return ID;
     }
