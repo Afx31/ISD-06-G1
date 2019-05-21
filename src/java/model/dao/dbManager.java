@@ -1,6 +1,8 @@
 package model.dao;
 
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import model.*;
 
 public class dbManager {
@@ -108,6 +110,32 @@ public class dbManager {
         String sql = "SELECT * FROM archive.users WHERE EMAIL = '"+ email +"' AND PASSWORD = '"+ password +"' ";
         ResultSet rs = st.executeQuery(sql);
         return rs.next();
+    }
+    
+    public void addLog(String ID, String event) throws SQLException{
+        DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime ldt = LocalDateTime.now();
+        int rsCount = 0;
+        String sqlcount = "SELECT * FROM archive.accesslog ORDER BY ID DESC";
+        ResultSet rs = st.executeQuery(sqlcount);
+        if(rs.next()) {
+            rsCount = Integer.parseInt(rs.getString("ID")) + 1;
+        }
+        String sql = "INSERT INTO archive.accesslog VALUES('"+rsCount+"', '"+ID+"', '"+dft.format(ldt)+"', '"+event+"')";
+        st.executeUpdate(sql);
+    }
+    
+    public int countRows(String sql) throws SQLException{
+        ResultSet rs = st.executeQuery(sql);
+        int rscount = 0;
+        while(rs.next()) {
+            rscount++;
+        }
+        return rscount;
+    }
+    
+    public AccessLog[] findAccessLogs() throws SQLException{
+        return null;
     }
 
     //Add a student-data into the database
