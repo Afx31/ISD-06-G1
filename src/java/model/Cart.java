@@ -16,6 +16,10 @@ public class Cart implements Serializable{
         movies.remove(movie);
     }
     
+    public void emptyMovies() {
+        movies.clear();
+    }
+    
     public double totalPrice() {
 	double sum = 0.0;
 	for (Movie m : movies)

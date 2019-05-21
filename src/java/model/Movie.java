@@ -3,66 +3,50 @@ package model;
 import java.io.Serializable;
 
 public class Movie implements Serializable {
-    private String title;
-    private String director;
-    private String date;
+    private String ID;
     private String genre;
+    private String director;
     private double price;
     private int stock;
-    private String image;
+    private String title;    
+    private String published;
+    //private String image;
 
-    public Movie(String title, String director, String date, String genre, double price, int stock, String image) {
-        this.title = title;
-        this.director = director;
-        this.date = date;
+    public Movie(String ID, String genre, String director, double price, int stock, String title, String published/*, String image*/) {
+        this.ID = ID;
         this.genre = genre;
+        this.director = director;
         this.price = price;
         this.stock = stock;
-        this.image = image;
+        this.title = title;
+        this.published = published;
+        //this.image = image;
     }
 
     public Movie() {}
     
-    public String getTitle() {
-        return title;
-    }
-    public String getDirector() {
-        return director;
-    }
-    public String getDate() {
-        return date;
-    }
-    public String getGenre() {
-        return genre;
-    }
-    public double getPrice() {
-        return price;
-    }
-    public int getStock() {
-        return stock;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public void setDirector(String director) {
-        this.director = director;
-    }
-    public void setDate(String date) {
-        this.date = date;
-    }
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-    public void setPrice(double price) {
-        this.price = price;
-    }
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-    public String getImage() {
-        return image;
-    }
-    public void setImage(String image) {
-        this.image = image;
-    }
+    public String getID() { return ID; }    
+    public void setID(String ID) { this.ID = ID; }
+    
+    public String getGenre() { return genre; }    
+    public void setGenre(String genre) { this.genre = genre; }
+    
+    public String getDirector() { return director; }    
+    public void setDirector(String director) { this.director = director; }
+    
+    public double getPrice() { return price; }    
+    public void setPrice(double price) { this.price = price; }
+    
+    public int getStock() { return stock; }    
+    public void setStock(int stock) { this.stock = stock; }    
+    
+    public String getTitle() { return title; }    
+    public void setTitle(String title) { this.title = title; }
+    
+    public String getPublished() { return published; }    
+    public void setPublished(String date) { this.published = date; }
+    
+    
+    /*public String getImage() { return image; }    
+    public void setImage(String image) { this.image = image; }*/
 }

@@ -1,8 +1,6 @@
 package model.dao;
 
 import java.sql.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import model.*;
 
 public class dbManager {
@@ -24,28 +22,36 @@ public class dbManager {
         return rs;
     }
     
-    public ResultSet findMovie(int id) throws SQLException{
-        String sql = "SELECT * FROM archive.movie WHERE id ='" + id + "'";
+    public Movie findMovieID(String id) throws SQLException{
+        String sql = "SELECT * FROM archive.movie WHERE id = '" + id + "'";        
         ResultSet rs = st.executeQuery(sql);
-        return rs;
+        Movie movie = null;
+        if(rs.next()) {
+            String movieID = rs.getString("ID");
+            String genre = rs.getString("GENRE"); 
+            String director = rs.getString("DIRECTOR");
+            Double price = rs.getDouble("PRICE");
+            int stock = rs.getInt("STOCK");
+            String title = rs.getString("TITLE");
+            String published = rs.getString("PUBLISHED");
+            movie = new Movie(movieID, genre, director, price, stock, title, published);
+        }
+        return movie;
     }
     
+   /* public Movie checkMovie() throws SQLException {
+        String sql = "SELECT * FROM archive.movie";
+        ResultSet rs = st.executeQuery(sql);
+        return movie;
+    }*/
+    
     public void addMovie(String ID, String Genre, String Director, String Price, String Stock, String Title, String Published) throws SQLException{
+        //String sql = "INSERT INTO archive.movie VALUES ('" + ID + "', " + Genre + "', )";
         String sql = "INSERT INTO archive.movie VALUES('"+ID+"', '"+Genre+"', '"+Director+"', '"+Price+"', '"+Stock+"', '"+Title+"', '"+Published+"')";
         st.executeUpdate(sql);
     }
-    
-    public void deleteMovie(String ID) throws SQLException{
-        String sql = "DELETE FROM movie WHERE ID = '"+ID+"'";
-        st.executeUpdate(sql);
-    }
-    
-    public void updateMovie(String ID, String Genre, String Director, String Price, String Stock, String Title, String Published) throws SQLException{
-        String sql = "UPDATE archive.movie SET ID='"+ID+"', GENRE='"+Genre+"', DIRECTOR='"+Director+"', PRICE='"+Price+"', STOCK='"+Stock+"', TITLE='"+Title+"', PUBLISHED='"+Published+"')";
-        st.executeUpdate(sql);
-    }
 
-    //Find student by ID in the database
+//Find student by ID in the database
     public Users findUser(String email) throws SQLException {
         //setup the select sql query string
         //execute this query using the statement field
@@ -71,11 +77,11 @@ public class dbManager {
     public Users[] findAllUsers() throws SQLException{
         String sql = "SELECT * FROM archive.users";
         ResultSet rs = st.executeQuery(sql);
-        int rscount = countRows(sql);
-//        if(rs.last()) {
-//            rscount = rs.getRow();
-//            rs.beforeFirst();
-//        }
+        int rscount = 0;
+        if(rs.last()) {
+            rscount = rs.getRow();
+            rs.beforeFirst();
+        }
         Users[] users = new Users[rscount];
         int i = 0;
         while(rs.next()) {
@@ -94,35 +100,14 @@ public class dbManager {
 
     //Check if a student exist in the database
     public boolean checkUser(String email, String password) throws SQLException {
+       //setup the select sql query string
+        //execute this query using the statement field
+        //add the results to a ResultSet
+        //search the ResultSet for a student using the parameters
+        //verify if the student exists
         String sql = "SELECT * FROM archive.users WHERE EMAIL = '"+ email +"' AND PASSWORD = '"+ password +"' ";
         ResultSet rs = st.executeQuery(sql);
         return rs.next();
-    }
-    
-    public void addLog(String ID, String event) throws SQLException{
-        DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime ldt = LocalDateTime.now();
-        int rsCount = 0;
-        String sqlcount = "SELECT * FROM archive.accesslog ORDER BY ID DESC";
-        ResultSet rs = st.executeQuery(sqlcount);
-        if(rs.next()) {
-            rsCount = Integer.parseInt(rs.getString("ID")) + 1;
-        }
-        String sql = "INSERT INTO archive.accesslog VALUES('"+rsCount+"', '"+ID+"', '"+dft.format(ldt)+"', '"+event+"')";
-        st.executeUpdate(sql);
-    }
-    
-    public int countRows(String sql) throws SQLException{
-        ResultSet rs = st.executeQuery(sql);
-        int rscount = 0;
-        while(rs.next()) {
-            rscount++;
-        }
-        return rscount;
-    }
-    
-    public AccessLog[] findAccessLogs() throws SQLException{
-        return null;
     }
 
     //Add a student-data into the database
