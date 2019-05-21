@@ -15,17 +15,18 @@
         </div>
         <div class="content">
           <div class="centerbox">
-            <h1>Welcome</h1>
-            <h2>Give us some details to get started!</h2>
-            <form action="home.jsp" method="post">
-              <input type="text" id="name" name="r_name" placeholder="Full Name">
-              <input type="text" id="email" name="r_email" placeholder="Email">
-              <input type="password" id="password" name="r_password" placeholder="Password">
-              <input type="password" id="confirm" name="r_confirm" placeholder="Confirm">
-              <label class="tos" for="tos">Agree to Terms of Service</label>
-              <input type="checkbox" name="r_tos">
-              <a style="font-size: 12px" href="login.jsp" >Already Registered?</a><br>  
-              <button type="submit">Register</button>
+            <h1>Welcome to The Archive</h1>
+                <h2>Please provide the following!</h2>
+                <form action="registerAction.jsp" method="post">
+                    <input type="text" id="name" name="r_fname" placeholder="First Name">
+                    <input type="text" id="name" name="r_lname" placeholder="Last Name">
+                    <input type="text" id="email" name="r_email" placeholder="Email">
+                    <input type="password" id="password" name="r_password" placeholder="Password">
+                    <input type="password" id="password" name="r_Cpassword" placeholder="Confirm Password">          
+                    <label class="tos" for="tos">Agree to Terms of Service</label>
+                    <input type="checkbox" name="r_tos">
+                    <a style="font-size: 12px" href="login.jsp" >Already A Member?</a><br>  
+                    <button type="submit">Register</button>
             </form>
           </div>
         </div>

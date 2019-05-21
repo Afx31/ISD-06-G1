@@ -22,14 +22,19 @@
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             //System.out.print(email+password); // email and pass work
-            if(manager == null) {
-                System.out.println("manager is null");
-            }
-            Users user = manager.findUser(email, password); // null pointer????
+//            if(manager == null) {
+//                System.out.println("manager is null");
+//            }
+            //Users user = manager.findUser(email, password); // null pointer????
             //Users user = new Users();
-            if (user != null) {
+            if (manager.checkUser(email, password)) {
+                Users user = manager.findUser(email);
                 session.setAttribute("userLogin", user);
-                response.sendRedirect("customerHome.jsp");                        
+                if(user.getRole().equalsIgnoreCase("c")) {
+                    response.sendRedirect("customerHome.jsp");  
+                } else if(user.getRole().equalsIgnoreCase("r") || user.getRole().equalsIgnoreCase("a")) {
+                    response.sendRedirect("staffHome.jsp");  
+                }                   
             }else{
                 session.setAttribute("wrongInfo", "Incorrect Email or Password");
                 response.sendRedirect("login.jsp");                               
