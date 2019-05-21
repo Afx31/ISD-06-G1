@@ -3,6 +3,9 @@
     Created on : 15/05/2019, 11:16:19 AM
     Author     : jbrien
 --%>
+<%@page import="model.dao.*"%>
+<%@page import="controller.*"%>
+<%@page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,8 +23,12 @@
         <a>Find Movies</a>
         <a><b>The Archive</b></a>
     </div>
+    <%
+        dbManager manager = (dbManager)session.getAttribute("manager");
+        ResultSet rs = manager.findMovie("");
+    %>
     <div>
-        <h1> Lets add some movies</h1>
+        <h1>Lets add some movies</h1>
         <form action="addmovie.jsp" method="post">
           <input type="text" name="id" placeholder="Movie ID">
           <input type="text" name="title" placeholder="Title">
@@ -32,6 +39,55 @@
           <input type="text" name="published" placeholder="24/02/2012">
           <button type="submit">Add Movie</button>
         </form> 
+        
+        <div style="float:left">
+            <form action="deleteMovie.jsp" method="post">    
+                <table style="float:left">
+                    <tr>
+                        <td><h1>Do you need to delete a movie?</h1></td>
+                    </tr>
+                    <tr>
+                        <td><input style="width:100%" type="text" name="search" placeholder="Insert ID to be Deleted"></td>
+                        <td><button style="margin-top:0px" type="submit">Delete</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div style="float:right">
+            <form action="updateMovie.jsp" method="post">    
+                <table>
+                    <tr>
+                        <td><h1>Do you need to Update a movie?</h1></td>
+                    </tr>
+                    <tr>
+                        <td><input style="width:100%" type="text" name="search" placeholder="Insert ID to be Updated"></td>
+                        <td><button style="margin-top:0px" type="submit">Update</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <table style="width: 100%">
+            <tr>
+                <td><b>ID</b></td>
+                <td><b>Title</b></td>
+                <td><b>Cost</b></td>
+                <td><b>In Stock?</b></td>
+            </tr>
+            <%
+            String inStock;
+            while(rs.next()){
+            if(Integer.parseInt(rs.getString(5)) > 0){
+                inStock = "Yes";
+            } else 
+                inStock = "No";
+            %>
+            <tr>
+                <td><p><%=rs.getString(1)%></p></td>
+                <td><p><%=rs.getString(6)%></p></td>
+                <td><p><%=rs.getString(4)%></p></td>
+                <td><p><%=inStock%></p></td>
+            </tr><%}%> 
+        </table>
     </div>
 </body>
 </html>
