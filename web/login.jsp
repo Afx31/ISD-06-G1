@@ -30,12 +30,15 @@
               <input type="password" id="password" name="password" placeholder="Password">
               <a style="font-size: 12px" href="register.jsp" >Not Registered?</a><br>
               <button type="submit">Sign In</button><br>
-              <div class="wrongInfo">
+            </form>
+            <form action="customerHome.jsp">
+                <button>Just Browsing?</button>
+            </form>
+            <div class="wrongInfo">
                 <c:if test="${wrongInfo!=null}"> 
                     <p><b> <c:out value="${wrongInfo}"/> </b></p> 
                 </c:if>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
 
