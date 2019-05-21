@@ -47,7 +47,7 @@
                         <td><h1>Do you need to delete a movie?</h1></td>
                     </tr>
                     <tr>
-                        <td><input style="width:100%" type="text" name="search" placeholder="Insert ID to be Deleted"></td>
+                        <td><input style="width:100%" type="text" name="d_id" placeholder="Insert ID to be Deleted"></td>
                         <td><button style="margin-top:0px" type="submit">Delete</button></td>
                     </tr>
                 </table>
@@ -57,10 +57,10 @@
             <form action="updateMovie.jsp" method="post">    
                 <table>
                     <tr>
-                        <td><h1>Do you need to Update a movie?</h1></td>
+                        <td><h1>Do you need to update a movie?</h1></td>
                     </tr>
                     <tr>
-                        <td><input style="width:100%" type="text" name="search" placeholder="Insert ID to be Updated"></td>
+                        <td><input style="width:100%" type="text" name="u_id" placeholder="Insert ID to be Updated"></td>
                         <td><button style="margin-top:0px" type="submit">Update</button></td>
                     </tr>
                 </table>

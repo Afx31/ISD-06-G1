@@ -18,9 +18,10 @@
 </head>
 
 <%
-    String id = request.getParameter("id");
+    String id = request.getParameter("u_id");
     dbManager manager = (dbManager)session.getAttribute("manager");
     
+    ResultSet rs  = manager.findMovie(Integer.parseInt(id));
 %>
 
 <body>
@@ -32,11 +33,19 @@
         <a><b>The Archive</b></a>
     </div>
     <div>
-        <%
-            manager.deleteMovie(id);
-        %>
-        <p>Movie Deleted :(</p>
-        <a href="staffHome.jsp">Back to Add another movie</a>
+        
+        <h1>Updating </h1>
+        <form action="confirmUpdate.jsp" method="post">
+            <input type="text" name="id" placeholder="Movie ID" value="<%=rs.getString(1)%>">
+            <input type="text" name="title" placeholder="Title" value="<%=rs.getString(6)%>">
+            <input type="text" name="genre" placeholder="Genre" value="<%=rs.getString(2)%>">
+            <input type="text" name="director" placeholder="Director" value="<%=rs.getString(3)%>">
+            <input type="text" name="price" placeholder="Price e.g: 19.99" value="<%=rs.getString(4)%>">
+            <input type="text" name="stock" placeholder="Stock e.g: 20" value="<%=rs.getString(5)%>">
+            <input type="text" name="published" placeholder="24/02/2012" value="<%=rs.getString(7)%>">
+            <button type="submit">Update Movie</button>
+        </form> 
+        <a href="staffHome.jsp">Back to manage more movies</a>
         
     </div>
     

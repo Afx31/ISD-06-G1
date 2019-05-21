@@ -18,7 +18,7 @@
 </head>
 
 <%
-    String id = request.getParameter("id");
+    String id = request.getParameter("d_id");
     dbManager manager = (dbManager)session.getAttribute("manager");
     
 %>
@@ -33,6 +33,7 @@
     </div>
     <div>
         <%
+            //System.out.println(id);
             manager.deleteMovie(id);
         %>
         <p>Movie Deleted :(</p>

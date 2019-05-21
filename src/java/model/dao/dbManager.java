@@ -24,13 +24,24 @@ public class dbManager {
         return rs;
     }
     
+    public ResultSet findMovie(int id) throws SQLException{
+        String sql = "SELECT * FROM archive.movie WHERE id ='" + id + "'";
+        ResultSet rs = st.executeQuery(sql);
+        return rs;
+    }
+    
     public void addMovie(String ID, String Genre, String Director, String Price, String Stock, String Title, String Published) throws SQLException{
         String sql = "INSERT INTO archive.movie VALUES('"+ID+"', '"+Genre+"', '"+Director+"', '"+Price+"', '"+Stock+"', '"+Title+"', '"+Published+"')";
         st.executeUpdate(sql);
     }
     
     public void deleteMovie(String ID) throws SQLException{
-        String sql = "DELETE FROM movie WHERE ID = '"+ID+",";
+        String sql = "DELETE FROM movie WHERE ID = '"+ID+"'";
+        st.executeUpdate(sql);
+    }
+    
+    public void updateMovie(String ID, String Genre, String Director, String Price, String Stock, String Title, String Published) throws SQLException{
+        String sql = "UPDATE archive.movie SET ID='"+ID+"', GENRE='"+Genre+"', DIRECTOR='"+Director+"', PRICE='"+Price+"', STOCK='"+Stock+"', TITLE='"+Title+"', PUBLISHED='"+Published+"')";
         st.executeUpdate(sql);
     }
 
