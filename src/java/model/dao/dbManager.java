@@ -149,11 +149,28 @@ public class dbManager {
     }
 
     //Add a student-data into the database
-    public void addUser(String firstname, String lastname, String email, String password) throws SQLException {        
-            String sql = "INSERT INTO archive.users VALUES('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "')";
+    public void addUser(String firstname, String lastname, String phone, String password, String email) throws SQLException {        
+        String role = "c";
+        int rsCount = 0;
+        String sqlcount = "SELECT * FROM archive.users ORDER BY ID DESC";
+        ResultSet rs = st.executeQuery(sqlcount);
+        if(rs.next()) {
+            rsCount = Integer.parseInt(rs.getString("ID")) + 1;
+        }    
+        String sql = "INSERT INTO archive.users VALUES('"+rsCount+"', '" + firstname + "', '" + lastname + "', '" + phone + "', '" + password + "', '" + email + "', '" + role + "')";
             st.executeUpdate(sql);
     }
 
+    public void addStaff(String firstname, String lastname, String phone, String password, String email, String role) throws SQLException {        
+        int rsCount = 0;
+        String sqlcount = "SELECT * FROM archive.users ORDER BY ID DESC";
+        ResultSet rs = st.executeQuery(sqlcount);
+        if(rs.next()) {
+            rsCount = Integer.parseInt(rs.getString("ID")) + 1;
+        }    
+        String sql = "INSERT INTO archive.users VALUES('"+rsCount+"', '" + firstname + "', '" + lastname + "', '" + phone + "', '" + password + "', '" + email + "', '" + role + "')";
+            st.executeUpdate(sql);
+    }
 
     //update a student details in the database
     public void updateUser(String ID, String firstName,String lastName,String dob,String password,String email,String role) throws SQLException {

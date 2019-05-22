@@ -1,8 +1,9 @@
 <%-- 
-    Document   : registerAction
-    Created on : 20/05/2019, 5:59:43 PM
+    Document   : staffRegisterAction
+    Created on : 22/05/2019, 5:38:17 PM
     Author     : Varun
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.dao.*"%>
 <%@page import="controller.*"%>
@@ -12,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Register Action Page</title>
+        <title>Staff Register Action Page</title>
     </head>
 
     <body>
@@ -24,14 +25,16 @@
             String phone = request.getParameter("r_phone");
             String password = request.getParameter("r_password");
             String Cpassword = request.getParameter("r_Cpassword");
+            String role = request.getParameter("r_role");
             if (password == Cpassword) {
-                manager.addUser(firstname, lastname, phone, password, email);
+                manager.addStaff(firstname, lastname, phone, password, email, role);
                 response.sendRedirect("login.jsp");
             } else {
                 session.setAttribute("wrongPassword", "Passwords do not match");
-                response.sendRedirect("register.jsp");
+                response.sendRedirect("staffRegister.jsp");
             }
         %>    
 
     </body>
 </html>
+
