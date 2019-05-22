@@ -14,15 +14,12 @@
     <link rel="stylesheet" href="CSS/main.css">
 </head>
 <body>
-     <div class="topnav">
+    <div class="topnav">
         <a href="login.jsp">Log Out</a>
         <a>My Account</a>
-        <a>My Cart</a>
-        <a href="customerHome.jsp">Find Movies</a>
-        <a href="staffHome.jsp">Staff Functions</a>
-        <a href="login.jsp">Login</a>
-        <a href="register.jsp">Register</a>
-        <a href="index.jsp"><b>The Archive</b></a>
+        <a href="cart.jsp">My Cart</a>
+        <a>Find Movies</a>
+        <a><b>The Archive</b></a>
     </div>
     <div>
         <h1> Lets find some movies</h1>

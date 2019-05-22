@@ -36,7 +36,7 @@ public class dbManager {
     }
     
     public void updateMovie(String ID, String Genre, String Director, String Price, String Stock, String Title, String Published) throws SQLException{
-        String sql = "UPDATE archive.movie SET ID='"+ID+"', GENRE='"+Genre+"', DIRECTOR='"+Director+"', PRICE='"+Price+"', STOCK='"+Stock+"', TITLE='"+Title+"', PUBLISHED='"+Published+"'";
+        String sql = "UPDATE archive.movie SET ID='"+ID+"', GENRE='"+Genre+"', DIRECTOR='"+Director+"', PRICE='"+Price+"', STOCK='"+Stock+"', TITLE='"+Title+"', PUBLISHED='"+Published+"')";
         st.executeUpdate(sql);
     }
     

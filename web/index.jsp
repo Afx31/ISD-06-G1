@@ -18,7 +18,7 @@
         <a href="staffHome.jsp">Staff Functions</a>
         <a href="login.jsp">Login</a>
         <a href="register.jsp">Register</a>
-        <a href="index.jsp"><b>The Archive</b></a>
+        <a><b>The Archive</b></a>
     </div>
     
     <div class="centerboxhome">
