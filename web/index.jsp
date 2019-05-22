@@ -13,7 +13,7 @@
     <div class="topnav">
         <a href="login.jsp">Log Out</a>
         <a>My Account</a>
-        <a>My Cart</a>
+        <a href="cart.jsp">My Cart</a>
         <a href="customerHome.jsp">Find Movies</a>
         <a href="staffHome.jsp">Staff Functions</a>
         <a href="login.jsp">Login</a>

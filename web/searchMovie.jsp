@@ -28,7 +28,7 @@
     <div class="topnav">
         <a href="login.jsp">Log Out</a>
         <a>My Account</a>
-        <a>My Cart</a>
+        <a href="cart.jsp">My Cart</a>
         <a>Find Movies</a>
         <a><b>The Archive</b></a>
     </div>
@@ -56,6 +56,16 @@
                 <td><p><%=rs.getString(3)%></p></td>
                 <td><p><%=rs.getString(4)%></p></td>
                 <td><p><%=inStock%></p></td>
+                <td>
+                    <% if (inStock != "0") { %>
+                        <form action="cart.jsp" method="post">
+                            <input type="hidden" name="id" value="<%=rs.getString(1)%>"/>
+                            <input type="submit" value="Select" />
+                        </form>
+                    <% } else { %>
+                        <!-- some error msg | no copies available -->
+                    <% } %>
+                </td>
             </tr><%}%> 
         </table>
         <a href="customerHome.jsp">Back to search again</a>
