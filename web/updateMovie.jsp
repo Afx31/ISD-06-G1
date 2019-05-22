@@ -20,8 +20,9 @@
 <%
     String id = request.getParameter("u_id");
     dbManager manager = (dbManager)session.getAttribute("manager");
-    
-    ResultSet rs  = manager.findMovie(Integer.parseInt(id));
+    System.out.println(id);
+    ResultSet rs ;//= manager.findMovie(Integer.parseInt(id));
+    System.out.println(rs.getString(1));
 %>
 
 <body>
