@@ -34,7 +34,7 @@
         <a href="staffHome.jsp">Staff Functions</a>
         <a href="login.jsp">Login</a>
         <a href="register.jsp">Register</a>
-        <a href="index.html"><b>The Archive</b></a>
+        <a href="index.jsp"><b>The Archive</b></a>
     </div>
     <div>
         
