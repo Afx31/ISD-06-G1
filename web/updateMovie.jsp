@@ -21,36 +21,37 @@
     String id = request.getParameter("u_id");
     dbManager manager = (dbManager)session.getAttribute("manager");
     System.out.println(id);
-    ResultSet rs ;//= manager.findMovie(Integer.parseInt(id));
-    System.out.println(rs.getString(1));
+    Movie m = manager.findMovieID(id);
+    System.out.println(m.getID());
 %>
 
 <body>
-    <div class="topnav">
+     <div class="topnav">
         <a href="login.jsp">Log Out</a>
         <a>My Account</a>
         <a>My Cart</a>
-        <a>Find Movies</a>
-        <a><b>The Archive</b></a>
+        <a href="customerHome.jsp">Find Movies</a>
+        <a href="staffHome.jsp">Staff Functions</a>
+        <a href="login.jsp">Login</a>
+        <a href="register.jsp">Register</a>
+        <a href="index.jsp"><b>The Archive</b></a>
     </div>
     <div>
         
-        <h1>Updating </h1>
+        <h1>Updating <%=m.getTitle()%></h1>
         <form action="confirmUpdate.jsp" method="post">
-            <input type="text" name="id" placeholder="Movie ID" value="<%=rs.getString(1)%>">
-            <input type="text" name="title" placeholder="Title" value="<%=rs.getString(6)%>">
-            <input type="text" name="genre" placeholder="Genre" value="<%=rs.getString(2)%>">
-            <input type="text" name="director" placeholder="Director" value="<%=rs.getString(3)%>">
-            <input type="text" name="price" placeholder="Price e.g: 19.99" value="<%=rs.getString(4)%>">
-            <input type="text" name="stock" placeholder="Stock e.g: 20" value="<%=rs.getString(5)%>">
-            <input type="text" name="published" placeholder="24/02/2012" value="<%=rs.getString(7)%>">
+            <input type="text" name="id" placeholder="Movie ID" value="<%=m.getID()%>">
+            <input type="text" name="title" placeholder="Title" value="<%=m.getTitle()%>">
+            <input type="text" name="genre" placeholder="Genre" value="<%=m.getGenre()%>">
+            <input type="text" name="director" placeholder="Director" value="<%=m.getDirector()%>">
+            <input type="text" name="price" placeholder="Price e.g: 19.99" value="<%=m.getPrice()%>">
+            <input type="text" name="stock" placeholder="Stock e.g: 20" value="<%=m.getStock()%>">
+            <input type="text" name="published" placeholder="24/02/2012" value="<%=m.getPublished()%>">
             <button type="submit">Update Movie</button>
         </form> 
         <a href="staffHome.jsp">Back to manage more movies</a>
         
     </div>
-    
-    
     
 </body>
 </html>
