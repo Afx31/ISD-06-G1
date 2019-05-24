@@ -48,8 +48,8 @@ public class dbManager {
             String movieID = rs.getString("ID");
             String genre = rs.getString("GENRE"); 
             String director = rs.getString("DIRECTOR");
-            Double price = rs.getDouble("PRICE");
-            int stock = rs.getInt("STOCK");
+            String price = rs.getString("PRICE");
+            String stock = rs.getString("STOCK");
             String title = rs.getString("TITLE");
             String published = rs.getString("PUBLISHED");
             movie = new Movie(movieID, genre, director, price, stock, title, published);

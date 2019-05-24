@@ -6,13 +6,13 @@ public class Movie implements Serializable {
     private String ID;
     private String genre;
     private String director;
-    private double price;
-    private int stock;
+    private String price;
+    private String stock;
     private String title;    
     private String published;
     //private String image;
 
-    public Movie(String ID, String genre, String director, double price, int stock, String title, String published/*, String image*/) {
+    public Movie(String ID, String genre, String director, String price, String stock, String title, String published/*, String image*/) {
         this.ID = ID;
         this.genre = genre;
         this.director = director;
@@ -34,11 +34,11 @@ public class Movie implements Serializable {
     public String getDirector() { return director; }    
     public void setDirector(String director) { this.director = director; }
     
-    public double getPrice() { return price; }    
-    public void setPrice(double price) { this.price = price; }
+    public String getPrice() { return price; }    
+    public void setPrice(String price) { this.price = price; }
     
-    public int getStock() { return stock; }    
-    public void setStock(int stock) { this.stock = stock; }    
+    public String getStock() { return stock; }    
+    public void setStock(String stock) { this.stock = stock; }    
     
     public String getTitle() { return title; }    
     public void setTitle(String title) { this.title = title; }
