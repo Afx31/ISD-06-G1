@@ -1,7 +1,7 @@
 <%-- 
     Document   : viewUserofID
     Created on : 25/05/2019, 9:24:15 PM
-    Author     : I
+    Author     : Alson
 --%>
 
 <%@page import="model.dao.dbManager"%>
