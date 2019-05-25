@@ -38,7 +38,7 @@
                 <form action="customerHome.jsp">
                     <button>Change Details</button>
                 </form>
-                <form action="customerHome.jsp">
+                <form action="viewAccessLog.jsp">
                     <button>View Access Logs</button>
                 </form>
                 <form action="customerHome.jsp">
