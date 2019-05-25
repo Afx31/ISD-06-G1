@@ -17,9 +17,8 @@
     </head>
     <body>
         <%
-            dbManager manager = (dbManager)session.getAttribute("manager");
-            
             if((Users)session.getAttribute("userLogin")!=null) {
+                dbManager manager = (dbManager)session.getAttribute("manager");
                 Users user = (Users)session.getAttribute("userLogin");
                 manager.addLog(user.getID(),"Logout");
                 session.setAttribute("userLogin", null);

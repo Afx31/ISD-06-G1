@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +14,10 @@
         <link rel="stylesheet" href="CSS/main.css">
     </head>
     <body>
+        <%if((Users)session.getAttribute("userLogin")!=null) { %>
             <a href="logoutAction.jsp"><b>Logout</b></a>
-        
+        <%} else { %>
+            <a href="logoutAction.jsp"><b>Exit</b></a>
+        <%} %>
     </body>
 </html>

@@ -12,3 +12,5 @@ os.arch=amd64
 os.version=6.1
 derby.system.home=I:\netbeans\netbeans projects\ISD-06-G1\db
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sat May 25 16:02:21 AEST 2019: Shutting down Derby engine
