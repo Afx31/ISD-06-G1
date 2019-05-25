@@ -15,16 +15,16 @@ public class Users implements Serializable{
     private String ID;   
     private String firstName;   
     private String lastName;    
-    private String dob;    
+    private String phone;    
     private String password; 
     private String email;
     private String role;
     
-    public Users(String ID, String firstName,String lastName,String dob,String password,String email,String role) {
+    public Users(String ID, String firstName,String lastName,String phone,String password,String email,String role) {
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dob = dob;  
+        this.phone = phone;  
         this.password = password;
         this.email = email;
         this.role = role;
@@ -35,7 +35,7 @@ public class Users implements Serializable{
     public void updateUsers(String firstName,String lastName,String dob,String password,String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dob = dob;  
+        this.phone = phone;  
         this.password = password;
         this.email = email;
     }
@@ -65,11 +65,11 @@ public class Users implements Serializable{
     }
 
     public String getDob() {
-        return dob;
+        return phone;
     }
 
     public void setDob(String dob) {
-        this.dob = dob;
+        this.phone = phone;
     }
 
     public String getPassword() {

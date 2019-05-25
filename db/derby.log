@@ -1,14 +1,14 @@
-Sat May 25 09:34:54 AEST 2019 : Apache Derby Network Server - 10.10.2.0 - (1582446) started and ready to accept connections on port 1527
+Sat May 25 14:08:18 AEST 2019 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Sat May 25 09:34:55 AEST 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-016a-ec32-712c-ffffb6a4aa30 
-on database directory C:\Users\Will's Lappy\Documents\GitHub\ISD-06-G1\db\ArchiveDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
-Loaded from file:/C:/Program%20Files/glassfish-4.1.1/javadb/lib/derby.jar
+Sat May 25 14:08:19 AEST 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016a-ed2c-d21f-000065abacaf 
+on database directory I:\netbeans\netbeans projects\ISD-06-G1\db\ArchiveDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_172/db/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_201-b09
-user.dir=C:\Program Files\glassfish-4.1.1\javadb
-os.name=Windows 10
+java.runtime.version=1.8.0_172-b11
+user.dir=C:\Program Files\Java\jdk1.8.0_172\db
+os.name=Windows 7
 os.arch=amd64
-os.version=10.0
-derby.system.home=C:\Users\Will's Lappy\Documents\GitHub\ISD-06-G1\db
+os.version=6.1
+derby.system.home=I:\netbeans\netbeans projects\ISD-06-G1\db
 Database Class Loader started - derby.database.classpath=''

@@ -69,7 +69,8 @@ public class dbManager {
         //execute this query using the statement field
         //add the results to a ResultSet
         //search the ResultSet for a student using the parameters
-        String sql = "SELECT * FROM archive.users WHERE EMAIL = '"+ email +"' ";
+        String emailLower = email.toLowerCase();
+        String sql = "SELECT * FROM archive.users WHERE Lower(EMAIL) = '"+ emailLower +"' ";
         ResultSet rs = st.executeQuery(sql);
         Users user = null;
         if(rs.next()) {
@@ -77,11 +78,11 @@ public class dbManager {
             String id = rs.getString("ID");
             String fn = rs.getString("FIRSTNAME");
             String ln = rs.getString("LASTNAME");
-            String dob = rs.getString("DOB");
+            String phone = rs.getString("PHONE");
             String pw = rs.getString("PASSWORD");
             String rsemail = rs.getString("EMAIL");
             String role = rs.getString("ROLE");
-            user = new Users(id, fn, ln, dob, pw, rsemail, role);
+            user = new Users(id, fn, ln, phone, pw, rsemail, role);
         }
         return user;
     }
@@ -100,11 +101,11 @@ public class dbManager {
             String id = rs.getString("ID");
             String fn = rs.getString("FIRSTNAME");
             String ln = rs.getString("LASTNAME");
-            String dob = rs.getString("DOB");
+            String phone = rs.getString("PHONE");
             String pw = rs.getString("PASSWORD");
             String rsemail = rs.getString("EMAIL");
             String role = rs.getString("ROLE");
-            users[i] = new Users(id, fn, ln, dob, pw, rsemail, role); 
+            users[i] = new Users(id, fn, ln, phone, pw, rsemail, role); 
             i++;
         }
         return users;
@@ -117,7 +118,8 @@ public class dbManager {
         //add the results to a ResultSet
         //search the ResultSet for a student using the parameters
         //verify if the student exists
-        String sql = "SELECT * FROM archive.users WHERE EMAIL = '"+ email +"' AND PASSWORD = '"+ password +"' ";
+        String emailLower = email.toLowerCase();
+        String sql = "SELECT * FROM archive.users WHERE Lower(EMAIL) = '"+ emailLower +"' AND PASSWORD = '"+ password +"' ";
         ResultSet rs = st.executeQuery(sql);
         return rs.next();
     }
