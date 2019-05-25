@@ -3,6 +3,7 @@ package model.dao;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import model.*;
 
 public class dbManager {
@@ -113,11 +114,6 @@ public class dbManager {
 
     //Check if a student exist in the database
     public boolean checkUser(String email, String password) throws SQLException {
-       //setup the select sql query string
-        //execute this query using the statement field
-        //add the results to a ResultSet
-        //search the ResultSet for a student using the parameters
-        //verify if the student exists
         String emailLower = email.toLowerCase();
         String sql = "SELECT * FROM archive.users WHERE Lower(EMAIL) = '"+ emailLower +"' AND PASSWORD = '"+ password +"' ";
         ResultSet rs = st.executeQuery(sql);
@@ -133,8 +129,8 @@ public class dbManager {
         if(rs.next()) {
             rsCount = Integer.parseInt(rs.getString("ID")) + 1;
         }
-        System.out.print("getID: "+rs.getString("ID"));
-        System.out.print("rsCount: "+rsCount);
+        //System.out.print("getID: "+rs.getString("ID"));
+        //System.out.print("rsCount: "+rsCount);
         String sql = "INSERT INTO archive.accesslog VALUES('"+rsCount+"', '"+ID+"', '"+dft.format(ldt)+"', '"+event+"')";
         st.executeUpdate(sql);
     }
@@ -148,8 +144,22 @@ public class dbManager {
         return rscount;
     }
     
-    public AccessLog[] findAccessLogs() throws SQLException{
-        return null;
+    public ArrayList<AccessLog> findAccessLogs(String UID) throws SQLException{
+        DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String sql = "SELECT * FROM archive.accesslog WHERE USERID='"+UID+"'";
+        ResultSet rs = st.executeQuery(sql);
+        ArrayList<AccessLog> accessLog = new ArrayList<>();
+        while(rs.next()) {
+            String id = rs.getString("ID");
+            String uid = rs.getString("USERID");
+            String datetime = rs.getString("DATETIME");
+            String event = rs.getString("EVENT");
+            String[] dt = datetime.split("\\.");
+            //String[] dt = dt1[0].split("T");
+            AccessLog al = new AccessLog(id, uid, LocalDateTime.parse(dt[0], dft), event); 
+            accessLog.add(al);
+        }
+        return accessLog;
     }
 
     //Add a student-data into the database
