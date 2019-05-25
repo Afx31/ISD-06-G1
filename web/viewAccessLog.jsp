@@ -5,13 +5,18 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.*"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="CSS/main.css">
+        <title>The Archive | Access Logs</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%
+            Users user = (Users)session.getAttribute("userLogin");
+            
+        %>
     </body>
 </html>

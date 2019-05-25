@@ -10,7 +10,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>My Account Page</title>
+        <title>The Archive | My Account</title>
+        <link rel="stylesheet" href="CSS/main.css">
     </head>
     <body>
        <% 
