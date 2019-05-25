@@ -15,7 +15,8 @@
 </head>
 <body>
     <div class="topnav">
-        <a href="login.jsp">Log Out</a>
+        <jsp:include page="header.jsp" flush="true" />
+        <!--<a href="login.jsp">Log Out</a>-->
         <a>My Account</a>
         <a href="cart.jsp">My Cart</a>
         <a>Find Movies</a>

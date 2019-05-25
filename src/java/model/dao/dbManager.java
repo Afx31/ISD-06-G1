@@ -128,11 +128,13 @@ public class dbManager {
         DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime ldt = LocalDateTime.now();
         int rsCount = 0;
-        String sqlcount = "SELECT * FROM archive.accesslog ORDER BY ID DESC";
+        String sqlcount = "SELECT * FROM archive.accesslog ORDER BY length(ID) DESC, ID DESC";
         ResultSet rs = st.executeQuery(sqlcount);
         if(rs.next()) {
             rsCount = Integer.parseInt(rs.getString("ID")) + 1;
         }
+        System.out.print("getID: "+rs.getString("ID"));
+        System.out.print("rsCount: "+rsCount);
         String sql = "INSERT INTO archive.accesslog VALUES('"+rsCount+"', '"+ID+"', '"+dft.format(ldt)+"', '"+event+"')";
         st.executeUpdate(sql);
     }
