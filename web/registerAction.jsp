@@ -22,7 +22,7 @@
             String lastname = request.getParameter("r_lname");
             String email = request.getParameter("r_email");
             String phone = request.getParameter("r_phone");
-            String password = request.getParameter("r_password");
+            String password = request.getParameter("r_pass word");
             String Cpassword = request.getParameter("r_Cpassword");
             if (password == Cpassword) {
                 manager.addUser(firstname, lastname, phone, password, email);

@@ -37,9 +37,10 @@
                     <tr>
                         <th><input type="button" value="Choose Another Movie" onclick="location.href = 'customerHome.jsp'"></th>
                         <th>
-                            <form action="purchaseOrderUserCheck.jsp" method="get">
-                                <input type="hidden" name="id" value="{title}"/>
-                                <input type="submit" value="Purchase Order" name="purchaseOrder"/>
+                            <!--<form action="purchaseOrderLoginCheck.jsp" method="get">-->
+                            <form action="confirmOrder.jsp" method="get"> 
+                                <!--<input type="hidden" name="id" value="{title}"/>-->
+                                <input type="submit" value="Purchase Order"/>
                             </form>
                         </th>
                         <th>

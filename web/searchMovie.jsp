@@ -58,7 +58,7 @@
                 <td><p><%=inStock%></p></td>
                 <td>
                     <% if (inStock != "0") { %>
-                        <form action="cart.jsp" method="post">
+                        <form action="addToCart.jsp" method="post">
                             <input type="hidden" name="id" value="<%=rs.getString(1)%>"/>
                             <input type="submit" value="Select" />
                         </form>

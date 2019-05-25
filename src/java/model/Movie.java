@@ -44,7 +44,7 @@ public class Movie implements Serializable {
     public void setTitle(String title) { this.title = title; }
     
     public String getPublished() { return published; }    
-    public void setPublished(String date) { this.published = date; }
+    public void setPublished(String published) { this.published = published; }
     
     
     /*public String getImage() { return image; }    

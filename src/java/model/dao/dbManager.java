@@ -36,7 +36,13 @@ public class dbManager {
     }
     
     public void updateMovie(String ID, String Genre, String Director, String Price, String Stock, String Title, String Published) throws SQLException{
-        String sql = "UPDATE archive.movie SET ID='"+ID+"', GENRE='"+Genre+"', DIRECTOR='"+Director+"', PRICE='"+Price+"', STOCK='"+Stock+"', TITLE='"+Title+"', PUBLISHED='"+Published+"')";
+        //String sql = "UPDATE archive.movie SET ID='"+ID+"', GENRE='"+Genre+"', DIRECTOR='"+Director+"', PRICE='"+Price+"', STOCK='"+Stock+"', TITLE='"+Title+"', PUBLISHED='"+Published+"')";
+        String sql = "UPDATE archive.movie SET GENRE='"+Genre+"', DIRECTOR='"+Director+"', PRICE='"+Price+"', STOCK='"+Stock+"', TITLE='"+Title+"', PUBLISHED='"+Published+"' WHERE ID='"+ID+"'";
+        st.executeUpdate(sql);
+    }
+    
+    public void updateMovieStock(String ID, String stock) throws SQLException {
+        String sql = "UPDATE archive.movie SET STOCK='" +stock+"' WHERE ID='"+ID+"'";
         st.executeUpdate(sql);
     }
     
@@ -56,12 +62,6 @@ public class dbManager {
         }
         return movie;
     }
-    
-   /* public Movie checkMovie() throws SQLException {
-        String sql = "SELECT * FROM archive.movie";
-        ResultSet rs = st.executeQuery(sql);
-        return movie;
-    }*/
 
 //Find student by ID in the database
     public Users findUser(String email) throws SQLException {
@@ -183,5 +183,12 @@ public class dbManager {
     //delete a student from the database
     public void deleteUser(String ID) throws SQLException{
         //code for delete-operation
+    }
+    
+    public void addOrder(String ID, String userID, String status, String payment, String totalCost) throws SQLException {
+        DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime ldt = LocalDateTime.now();
+        String sql = "INSERT INTO archive.orders VALUES('"+ID+"', '"+userID+"', '"+dft.format(ldt)+"', '"+status+"', '"+payment+"', '"+totalCost+"')";
+        st.executeUpdate(sql);
     }
 }
