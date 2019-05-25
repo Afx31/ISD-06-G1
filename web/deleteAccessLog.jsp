@@ -4,6 +4,7 @@
     Author     : I
 --%>
 
+<%@page import="model.dao.dbManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,8 +14,9 @@
     </head>
     <body>
         <%
+            dbManager manager = (dbManager)session.getAttribute("manager"); 
             String id = request.getParameter("AccessLogID");
-            
+            manager.deleteLog(id);
         %>
     </body>
 </html>

@@ -135,6 +135,11 @@ public class dbManager {
         st.executeUpdate(sql);
     }
     
+    public void deleteLog(String ID) throws SQLException{
+        String sql = "DELETE FROM accesslog WHERE ID = '"+ID+"'";
+        st.executeUpdate(sql);
+    }
+    /*
     public int countRows(String sql) throws SQLException{
         ResultSet rs = st.executeQuery(sql);
         int rscount = 0;
@@ -143,7 +148,7 @@ public class dbManager {
         }
         return rscount;
     }
-    
+    */
     public ArrayList<AccessLog> findAccessLogs(String UID) throws SQLException{
         DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String sql = "SELECT * FROM archive.accesslog WHERE USERID='"+UID+"'";
