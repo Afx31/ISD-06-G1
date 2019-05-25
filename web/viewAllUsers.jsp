@@ -42,7 +42,7 @@
                     <th><%=user.getEmail()%></th>
                     <th>
                         <form action="viewUserofID.jsp" method="post">
-                            <input type="hidden" name="ViewUserofID" value="<%=user.getID()%>"/>
+                            <input type="hidden" name="ViewUserofEmail" value="<%=user.getEmail()%>"/>
                             <button style="margin-top:0px">View Details</button>
                         </form>
                     </th>

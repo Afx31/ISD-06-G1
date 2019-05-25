@@ -66,10 +66,7 @@ public class dbManager {
 
 //Find student by ID in the database
     public Users findUser(String email) throws SQLException {
-        //setup the select sql query string
-        //execute this query using the statement field
-        //add the results to a ResultSet
-        //search the ResultSet for a student using the parameters
+
         String emailLower = email.toLowerCase();
         String sql = "SELECT * FROM archive.users WHERE Lower(EMAIL) = '"+ emailLower +"' ";
         ResultSet rs = st.executeQuery(sql);
