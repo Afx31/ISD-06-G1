@@ -1,7 +1,7 @@
-Sat May 25 14:08:18 AEST 2019 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
+Sat May 25 17:27:37 AEST 2019 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Sat May 25 14:08:19 AEST 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016a-ed2c-d21f-000065abacaf 
+Sat May 25 17:27:41 AEST 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016a-ede3-4d82-000065abacaf 
 on database directory I:\netbeans\netbeans projects\ISD-06-G1\db\ArchiveDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
 Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_172/db/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -13,4 +13,8 @@ os.version=6.1
 derby.system.home=I:\netbeans\netbeans projects\ISD-06-G1\db
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sat May 25 16:02:21 AEST 2019: Shutting down Derby engine
+Sat May 25 17:41:22 AEST 2019: Shutting down Derby engine
+----------------------------------------------------------------
+Sat May 25 17:41:22 AEST 2019:
+Shutting down instance a816c00e-016a-ede3-4d82-000065abacaf on database directory I:\netbeans\netbeans projects\ISD-06-G1\db\ArchiveDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+----------------------------------------------------------------

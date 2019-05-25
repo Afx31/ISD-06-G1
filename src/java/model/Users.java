@@ -64,11 +64,11 @@ public class Users implements Serializable{
         this.lastName = lastName;
     }
 
-    public String getDob() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setDob(String dob) {
+    public void setPhone(String dob) {
         this.phone = phone;
     }
 
