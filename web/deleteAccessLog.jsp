@@ -1,7 +1,7 @@
 <%-- 
     Document   : deleteAccessLog
     Created on : 25/05/2019, 7:05:18 PM
-    Author     : I
+    Author     : Alson
 --%>
 
 <%@page import="model.dao.dbManager"%>

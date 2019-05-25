@@ -88,16 +88,10 @@ public class dbManager {
         return user;
     }
     
-    public Users[] findAllUsers() throws SQLException{
+    public ArrayList<Users> findAllUsers() throws SQLException{
         String sql = "SELECT * FROM archive.users";
         ResultSet rs = st.executeQuery(sql);
-        int rscount = 0;
-        if(rs.last()) {
-            rscount = rs.getRow();
-            rs.beforeFirst();
-        }
-        Users[] users = new Users[rscount];
-        int i = 0;
+        ArrayList<Users> users = new ArrayList<>();
         while(rs.next()) {
             String id = rs.getString("ID");
             String fn = rs.getString("FIRSTNAME");
@@ -106,8 +100,8 @@ public class dbManager {
             String pw = rs.getString("PASSWORD");
             String rsemail = rs.getString("EMAIL");
             String role = rs.getString("ROLE");
-            users[i] = new Users(id, fn, ln, phone, pw, rsemail, role); 
-            i++;
+            Users user = new Users(id, fn, ln, phone, pw, rsemail, role); 
+            users.add(user);
         }
         return users;
     }
@@ -139,16 +133,7 @@ public class dbManager {
         String sql = "DELETE FROM accesslog WHERE ID = '"+ID+"'";
         st.executeUpdate(sql);
     }
-    /*
-    public int countRows(String sql) throws SQLException{
-        ResultSet rs = st.executeQuery(sql);
-        int rscount = 0;
-        while(rs.next()) {
-            rscount++;
-        }
-        return rscount;
-    }
-    */
+    
     public ArrayList<AccessLog> findAccessLogs(String UID) throws SQLException{
         DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String sql = "SELECT * FROM archive.accesslog WHERE USERID='"+UID+"'";

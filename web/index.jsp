@@ -15,6 +15,7 @@
         <a>My Account</a>
         <a href="cart.jsp">My Cart</a>
         <a href="customerHome.jsp">Find Movies</a>
+        <a href="viewAllUsers.jsp">Staff view Users</a> 
         <a href="staffHome.jsp">Staff Functions</a>        
         <a href="staffRegister.jsp">Staff Register</a>
         <a href="login.jsp">Login</a>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : viewAccessLog
     Created on : 25/05/2019, 5:50:01 PM
-    Author     : I
+    Author     : Alson
 --%>
 
 <%@page import="java.time.format.DateTimeFormatter"%>
@@ -47,7 +47,6 @@
                     <th>
                         <form action="deleteAccessLog.jsp" method="post">
                             <input type="hidden" name="AccessLogID" value="<%=al.getID()%>"/>
-                            <!--<input type="Delete" value="Select" />-->
                             <button style="margin-top:0px">Delete</button>
                         </form>
                     </th>
