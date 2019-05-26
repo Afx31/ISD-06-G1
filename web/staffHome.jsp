@@ -28,66 +28,63 @@
         ResultSet rs = manager.findMovie("");
     %>
     <div>
-        <h1>Lets add some movies</h1>
-        <form action="addmovie.jsp" method="post">
-          <input type="text" name="id" placeholder="Movie ID">
-          <input type="text" name="title" placeholder="Title">
-          <input type="text" name="genre" placeholder="Genre">
-          <input type="text" name="director" placeholder="Director">
-          <input type="text" name="price" placeholder="Price e.g: 19.99">
-          <input type="text" name="stock" placeholder="Stock e.g: 20">
-          <input type="text" name="published" placeholder="24/02/2012">
-          <button type="submit">Add Movie</button>
-        </form> 
-        
-        <div style="float:left">
-            <form action="deleteMovie.jsp" method="post">    
-                <table style="float:left">
+        <div>
+            <h1>Do you need to add a movie?</h1>
+            <form action="staffAddMovie.jsp" method="post">    
+                <table>
                     <tr>
-                        <td><h1>Do you need to delete a movie?</h1></td>
+                        <td><button style="margin-top:0px" type="submit">Goto Add Movie</button></td>
                     </tr>
+                </table>
+            </form>
+        </div>
+        <div>
+            <h1>Do you need to delete a movie?</h1>
+            <form action="deleteMovie.jsp" method="post">    
+                <table>
                     <tr>
-                        <td><input style="width:100%" type="text" name="d_id" placeholder="Insert ID to be Deleted"></td>
+                        <td><input type="text" name="d_id" placeholder="Insert ID to be Deleted"></td>
                         <td><button style="margin-top:0px" type="submit">Delete</button></td>
                     </tr>
                 </table>
             </form>
         </div>
-        <div style="float:right">
+        <div>
+            <h1>Do you need to update a movie?</h1> 
             <form action="updateMovie.jsp" method="post">    
                 <table>
                     <tr>
-                        <td><h1>Do you need to update a movie?</h1></td>
-                    </tr>
-                    <tr>
-                        <td><input style="width:100%" type="text" name="u_id" placeholder="Insert ID to be Updated"></td>
+                        <td><input type="text" name="u_id" placeholder="Insert ID to be Updated"></td>
                         <td><button style="margin-top:0px" type="submit">Update</button></td>
                     </tr>
                 </table>
             </form>
         </div>
-        <table style="width: 100%">
-            <tr>
-                <td><b>ID</b></td>
-                <td><b>Title</b></td>
-                <td><b>Cost</b></td>
-                <td><b>In Stock?</b></td>
-            </tr>
-            <%
-            String inStock;
-            while(rs.next()){
-            if(Integer.parseInt(rs.getString(5)) > 0){
-                inStock = "Yes";
-            } else 
-                inStock = "No";
-            %>
-            <tr>
-                <td><p><%=rs.getString(1)%></p></td>
-                <td><p><%=rs.getString(6)%></p></td>
-                <td><p><%=rs.getString(4)%></p></td>
-                <td><p><%=inStock%></p></td>
-            </tr><%}%> 
-        </table>
+        <div>
+            <h1>List of Movies</h1>
+            <table style="width: 100%">
+                <tr>
+                    <td><b>ID</b></td>
+                    <td><b>Title</b></td>
+                    <td><b>Cost</b></td>
+                    <td><b>In Stock?</b></td>
+                </tr>
+                <%
+                String inStock;
+                while(rs.next()){
+                if(Integer.parseInt(rs.getString(5)) > 0){
+                    inStock = "Yes";
+                } else 
+                    inStock = "No";
+                %>
+                <tr>
+                    <td><p><%=rs.getString(1)%></p></td>
+                    <td><p><%=rs.getString(6)%></p></td>
+                    <td><p><%=rs.getString(4)%></p></td>
+                    <td><p><%=inStock%></p></td>
+                </tr><%}%> 
+            </table>
+        </div>
     </div>
 </body>
 </html>
