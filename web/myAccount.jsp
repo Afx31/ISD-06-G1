@@ -37,8 +37,8 @@
                      <p>Your Phone: <%= user.getPhone() %></p>
                      <p>Your password is: <%= user.getPassword() %></p>  
 
-                     <form action="customerHome.jsp">
-                         <button>Change Details</button>
+                     <form action="updateDetails.jsp">
+                         <button>Update Details</button>
                      </form>
                      <form action="viewAccessLog.jsp">
                          <button>View Access Logs</button>
