@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>The Archive | Home</title>
+    <title>The Archive | Movie Updated</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="CSS/main.css">
@@ -39,10 +39,10 @@
         <%
             
             dbManager manager = (dbManager)session.getAttribute("manager");
-            manager.addMovie(id,genre,director,price,stock,title,published);
+            manager.updateMovie(id,genre,director,price,stock,title,published);
         %>
         <p>Movie Updated!</p>
-        <a href="staffHome.jsp">Back to Add another movie</a>
+        <a href="staffHome.jsp">Back to update other movie</a>
         
     </div>
     
