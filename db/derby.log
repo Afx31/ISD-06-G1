@@ -12,3 +12,9 @@ os.arch=x86_64
 os.version=10.14.4
 derby.system.home=/Users/jbrien/Google Drive/UTS/2019 Autumn/Introduction to Software Development/Assignment 2/ISD-06-G1/db
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Wed May 22 12:20:22 AEST 2019: Shutting down Derby engine
+----------------------------------------------------------------
+Wed May 22 12:20:22 AEST 2019:
+Shutting down instance a816c00e-016a-dce7-0bbf-fffffeba2cd6 on database directory /Users/jbrien/Google Drive/UTS/2019 Autumn/Introduction to Software Development/Assignment 2/ISD-06-G1/db/ArchiveDB with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
+----------------------------------------------------------------
