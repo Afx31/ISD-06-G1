@@ -25,15 +25,12 @@
 %>
 
 <body>
-     <div class="topnav">
+    <div class="topnav">
         <a href="login.jsp">Log Out</a>
         <a>My Account</a>
-        <a>My Cart</a>
-        <a href="customerHome.jsp">Find Movies</a>
-        <a href="staffHome.jsp">Staff Functions</a>
-        <a href="login.jsp">Login</a>
-        <a href="register.jsp">Register</a>
-        <a href="index.jsp"><b>The Archive</b></a>
+        <a href="cart.jsp">My Cart</a>
+        <a>Find Movies</a>
+        <a><b>The Archive</b></a>
     </div>
     <div>
         <h1>Here are the results</h1>
@@ -59,6 +56,16 @@
                 <td><p><%=rs.getString(3)%></p></td>
                 <td><p><%=rs.getString(4)%></p></td>
                 <td><p><%=inStock%></p></td>
+                <td>
+                    <% if (inStock != "0") { %>
+                        <form action="addToCart.jsp" method="post">
+                            <input type="hidden" name="id" value="<%=rs.getString(1)%>"/>
+                            <input type="submit" value="Select" />
+                        </form>
+                    <% } else { %>
+                        <!-- some error msg | no copies available -->
+                    <% } %>
+                </td>
             </tr><%}%> 
         </table>
         <a href="customerHome.jsp">Back to search again</a>

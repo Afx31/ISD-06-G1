@@ -56,6 +56,16 @@ body {
   text-align: center;
 }
 
+.centerbox2 {
+  margin: auto;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 25px;
+  width: 400px;
+  height: 700px;
+  text-align: center;
+}
+
 centerboxhome {
   margin: auto;
   background-color: #fff;
@@ -131,6 +141,17 @@ input[type=password]:focus::placeholder {
   color: transparent;
 }
 
+input[type=date] {
+  width: 100%;
+  background-color: lightgrey;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 0px;
+  border-radius: 9px;
+  font-size: 16px;
+}
+
 input[type=submit] {
     display: block
 }
@@ -165,6 +186,18 @@ button:hover{
     color: red;
     
 }
+
+.wrongPassword p {
+    font-size: 12px;
+    color: red;
+    
+}
+
+.emptyFields p {
+    font-size: 12px;
+    color: red; 
+}
+
 
 table {
   background-color: #ffffff;

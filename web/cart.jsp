@@ -18,15 +18,8 @@
     </head>
     <body>
         <%
-            dbManager manager = (dbManager) session.getAttribute("manager");
-            //String id = request.getParameter("id");
-            String id = "1";  
-            
-             
-            Movie movie = manager.findMovieID(id);
-            //ArrayList<Movie> matchesMovie = manager.checkMovie(id);
-            ArrayList<Movie> movieArrayList = new ArrayList<Movie>();
-            movieArrayList.add(movie);
+            ArrayList<Movie> movieArrayList;
+            movieArrayList = (ArrayList<Movie>)session.getAttribute("movieList");
         %>
         <div class="topnav">
             <a href="login.jsp">Log Out</a>
@@ -42,13 +35,16 @@
             <div style="text-align: center;">
                 <table>
                     <tr>
-                        <th><input type="button" value="Choose Another Movie" onclick="location.href='customerHome.jsp'"></th>
-                        <th><form action="purchaseOrderUserCheck.jsp" method="get">
-                                <input type="hidden" name="id" value="{title}"/>
-                                <input type="submit" value="Purchase Order" name="purchaseOrder"/>
+                        <th><input type="button" value="Choose Another Movie" onclick="location.href = 'customerHome.jsp'"></th>
+                        <th>
+                            <!--<form action="purchaseOrderLoginCheck.jsp" method="get">-->
+                            <form action="confirmOrder.jsp" method="get"> 
+                                <!--<input type="hidden" name="id" value="{title}"/>-->
+                                <input type="submit" value="Purchase Order"/>
                             </form>
                         </th>
-                        <th><form action="cancelledConfirmation.jsp" method="get">
+                        <th>
+                            <form action="cartCancelledConfirm.jsp" method="get">
                                 <input type="submit" value="Cancel Order">     
                             </form>
                         </th>
@@ -64,17 +60,21 @@
                         <th>Director</th>
                         <th>Available Copies</th>
                     </tr>
-                    <% for (Movie m : movieArrayList) { %>
+                    <% if (session.getAttribute("movieList")!=null) {
+                        for (Movie m : movieArrayList) {%>
                     <tr>
-                        <th><%=movie.getID()%></th>
-                        <th><%=movie.getTitle()%></th>
-                        <th><%=movie.getGenre()%></th>
-                        <th><%=movie.getPublished()%></th>
-                        <th><%=movie.getPrice()%></th>
-                        <th><%=movie.getDirector()%></th>
-                        <th><%=movie.getStock()%></th>
+                        <th><%=m.getID()%></th>
+                        <th><%=m.getTitle()%></th>
+                        <th><%=m.getGenre()%></th>
+                        <th><%=m.getPublished()%></th>
+                        <th><%=m.getPrice()%></th>
+                        <th><%=m.getDirector()%></th>
+                        <th><%=m.getStock()%></th>
                     </tr>
-                    <% } %>
+                    <% } 
+                    } else {
+                        movieArrayList = new ArrayList<Movie>();
+                    } %>
                 </table>
             </div>
         </div>

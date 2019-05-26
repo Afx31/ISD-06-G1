@@ -20,10 +20,10 @@ public class Cart implements Serializable{
         movies.clear();
     }
     
-    public double totalPrice() {
+    /*public double totalPrice() {
 	double sum = 0.0;
 	for (Movie m : movies)
             sum += m.getPrice();
 	return sum;
-    }
+    }*/
 }
