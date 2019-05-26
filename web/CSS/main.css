@@ -193,6 +193,12 @@ button:hover{
     
 }
 
+.emptyFields p {
+    font-size: 12px;
+    color: red; 
+}
+
+
 table {
   background-color: #ffffff;
   align: center;

@@ -26,7 +26,10 @@
             String password = request.getParameter("r_password");
             String Cpassword = request.getParameter("r_Cpassword");
             String role = request.getParameter("r_role");
-            if (password == Cpassword) {
+            if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || Cpassword.isEmpty() || role.isEmpty()) {
+                session.setAttribute("emptyFields", "Fill in all Fields");
+                response.sendRedirect("staffRegister.jsp");
+            } else if (password.equals(Cpassword)) {
                 manager.addStaff(firstname, lastname, phone, password, email, role);
                 response.sendRedirect("login.jsp");
             } else {

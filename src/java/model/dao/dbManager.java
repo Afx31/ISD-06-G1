@@ -153,7 +153,7 @@ public class dbManager {
     public void addUser(String firstname, String lastname, String phone, String password, String email) throws SQLException {        
         String role = "c";
         int rsCount = 0;
-        String sqlcount = "SELECT * FROM archive.users ORDER BY ID DESC";
+        String sqlcount = "SELECT * FROM archive.users ORDER BY length(ID) DESC, ID DESC";
         ResultSet rs = st.executeQuery(sqlcount);
         if(rs.next()) {
             rsCount = Integer.parseInt(rs.getString("ID")) + 1;
@@ -164,7 +164,7 @@ public class dbManager {
 
     public void addStaff(String firstname, String lastname, String phone, String password, String email, String role) throws SQLException {        
         int rsCount = 0;
-        String sqlcount = "SELECT * FROM archive.users ORDER BY ID DESC";
+        String sqlcount = "SELECT * FROM archive.users ORDER BY length(ID) DESC, ID DESC";
         ResultSet rs = st.executeQuery(sqlcount);
         if(rs.next()) {
             rsCount = Integer.parseInt(rs.getString("ID")) + 1;

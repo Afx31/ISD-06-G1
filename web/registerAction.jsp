@@ -22,16 +22,19 @@
             String lastname = request.getParameter("r_lname");
             String email = request.getParameter("r_email");
             String phone = request.getParameter("r_phone");
-            String password = request.getParameter("r_pass word");
+            String password = request.getParameter("r_password");
             String Cpassword = request.getParameter("r_Cpassword");
-            if (password == Cpassword) {
+            if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || Cpassword.isEmpty()) {
+               session.setAttribute("emptyFields", "Fill in all Fields");   
+                response.sendRedirect("register.jsp");               
+            } else if (password.equals(Cpassword)) {
                 manager.addUser(firstname, lastname, phone, password, email);
                 response.sendRedirect("login.jsp");
             } else {
-                session.setAttribute("wrongPassword", "Passwords do not match");
-                response.sendRedirect("register.jsp");
-            }
-        %>    
-
+              session.setAttribute("wrongPassword", "Passwords do not match");
+              response.sendRedirect("register.jsp");
+           }
+        %>   
+        
     </body>
 </html>
