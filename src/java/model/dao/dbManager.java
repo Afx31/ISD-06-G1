@@ -174,16 +174,15 @@ public class dbManager {
     }
 
     //update a student details in the database
-    public void updateUser(String ID, String firstName,String lastName,String dob,String password,String email,String role) throws SQLException {
-        //code for update-operation        
-        String sql = "UPDATE archive.users SET ID='"+ID+"', FIRSTNAME='"+firstName+"', LASTNAME='"+lastName+"', DOB='"+dob+"', PASSWORD='"+password+"', EMAIL='"+email+"' WHERE ID='"+ID+"'";
-        //missing role
+    public void updateUser(String ID, String firstName,String lastName,String phone,String password,String email) throws SQLException {
+        String sql = "UPDATE archive.users SET ID='"+ID+"', FIRSTNAME='"+firstName+"', LASTNAME='"+lastName+"', PHONE='"+phone+"', PASSWORD='"+password+"', EMAIL='"+email+"' WHERE ID='"+ID+"'";
         st.executeUpdate(sql);
     }
-    
+     
     //delete a student from the database
     public void deleteUser(String ID) throws SQLException{
-        //code for delete-operation
+        String sql = "DELETE FROM archive.users WHERE ID = '"+ID+"'";
+        st.executeUpdate(sql);
     }
     
     public void addOrder(String ID, String userID, String status, String payment, String totalCost) throws SQLException {

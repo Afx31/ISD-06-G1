@@ -40,6 +40,9 @@
                      <form action="updateDetails.jsp">
                          <button>Update Details</button>
                      </form>
+                     <form action="deleteAction.jsp">
+                         <button>Delete Account</button>
+                     </form>
                      <form action="viewAccessLog.jsp">
                          <button>View Access Logs</button>
                      </form>

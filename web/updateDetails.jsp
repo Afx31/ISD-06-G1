@@ -13,10 +13,8 @@
     </head>
     <body>
         <%
-            if (session.getAttribute("userLogin") == null) {
-                response.sendRedirect("login.jsp");
-            }
             Users user = (Users) session.getAttribute("userLogin");
+            dbManager manager = (dbManager)session.getAttribute("manager");
         %>
         <%if (session.getAttribute("userLogin") != null) {%>
         <div class="topnav">
@@ -25,36 +23,16 @@
             <a href="cart.jsp">My Cart</a>
             <a>Find Movies</a>
         </div>
-        <form action="updateDetails.jsp" method="POST">
-            <table>
-                <tr><td>Student ID</td><td><%= user.getID()%></td></tr>
-                <tr><td>First name</td><td><input type="text" value="<%= user.getFirstName()%>" name="name"></td></tr>
-                <tr><td>Last name</td><td><input type="text" value="<%= user.getLastName()%>" name="name"></td></tr>                
-                <tr><td>Email</td><td><input type="text" value="<%= user.getEmail()%>" name="email"></td></tr>                
-                <tr><td>Password</td><td><input type="password" value="<%= user.getPassword()%>" name="password"></td></tr>   
-                <tr><td>Phone Number</td><td><input type="date" value="<%= user.getPhone()%>" name="dob"></td></tr> 
-                <tr><td>Role</td><td> <input type="color" name ="favcol" <%= user.getRole()%>></td></tr>
-                <tr><td><input type="hidden" value="updated" name="updated"></td>
-                    <td><input class="button" type="submit" value="Save"> 
-                    </td>
-                </tr>
-            </table>
+        <h1>Update Your Details</h1>            
+        <form action="confirmUserUpdate.jsp" method="post">
+            <input type="text" id="name" name="id" value="<%= user.getID()%>">
+            <input type="text" id="name" name="firstname" value="<%= user.getFirstName()%>">
+            <input type="text" id="name" name="lastname" value="<%= user.getLastName()%>">
+            <input type="email" id="email" name="email" value="<%= user.getEmail()%>">
+            <input type="text" id="phone"  name="phone" value="<%= user.getPhone()%>"> 
+            <input type="text" id="password" name="password" value="<%= user.getPassword()%>">
+            <button type="submit">Update</button>                    
         </form>
-        <%           
-            dbManager manager = (dbManager) session.getAttribute("manager");
-
-            if (request.getParameter("updated") != null) {
-                manager.updateUser(user.getID(), request.getParameter("firstname"), request.getParameter("lastname"), request.getParameter("email"),
-                        request.getParameter("password"), request.getParameter("phone"), request.getParameter("role"));
-                Users userEdit = manager.findUser(request.getParameter("email"));
-
-                if (userEdit != null) {
-                    session.setAttribute("user", userEdit);
-                %>
-                    <p class="outline"> User details updated.</p>
-                <%} else {%>
-                    <p class="outline"> Could not update database!</p> 
-                <%}%>
-            <%}%>  
+        <%}%>     
     </body>
 </html>
