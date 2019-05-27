@@ -30,9 +30,7 @@
                     <input type="password" id="password" name="r_password" placeholder="Password">
                     <input type="password" id="password" name="r_Cpassword" placeholder="Confirm Password">
                     <input type="text" id="role"  name="r_role" placeholder="Role">                     
-                    <label class="tos" for="tos">Agree to Terms of Service</label>
-                    <input type="checkbox" name="r_tos">
-                    <a style="font-size: 12px" href="login.jsp" >Already A Staff?</a><br>  
+                    <label class="tos" for="tos">Agree to Terms of Service</label> <input type="checkbox" name="r_tos">
                     <button type="submit">Register</button>
             </form>
                 <div class="emptyFields">

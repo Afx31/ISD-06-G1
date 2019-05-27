@@ -10,39 +10,24 @@
 <%@page contentType="text/html" import="java.util.*" import="model.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>The Archive | Details Updated</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="CSS/main.css">
-</head>
+    <head>
+        <title>The Archive | Details Updated</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="CSS/main.css">
+    </head>
 
-<%
-    String id = request.getParameter("id");
-    String firstname = request.getParameter("firstname");
-    String lastname = request.getParameter("lastname");
-    String phone = request.getParameter("phone");
-    String password = request.getParameter("password");
-    String email = request.getParameter("email");
-%>
-
-<body>
-    <div class="topnav">
-        <a href="login.jsp">Log Out</a>
-        <a>My Account</a>
-        <a>My Cart</a>
-        <a>Find Movies</a>
-        <a><b>The Archive</b></a>
-    </div>
-    <div>
-        <%
-            dbManager manager = (dbManager)session.getAttribute("manager");
-            manager.updateUser(id,firstname,lastname,phone,password,email);
-        %>
-        <p>Details Updated!</p>
-        <a href="myAccount.jsp">Back to Account </a>
-        
-    </div>
-    
-</body>
+    <body>
+            <%            
+                String id = request.getParameter("id");
+                String firstname = request.getParameter("firstname");
+                String lastname = request.getParameter("lastname");
+                String phone = request.getParameter("phone");
+                String password = request.getParameter("password");
+                String email = request.getParameter("email");
+                dbManager manager = (dbManager) session.getAttribute("manager");
+                manager.updateUser(id, firstname, lastname, phone, password, email);
+                response.sendRedirect("myAccount.jsp");
+            %>
+    </body>
 </html>
