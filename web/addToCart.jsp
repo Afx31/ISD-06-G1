@@ -17,7 +17,7 @@
     <body>
         <%
             dbManager manager = (dbManager) session.getAttribute("manager");
-            String id = request.getParameter("id");
+            String id = request.getParameter("selectedMovieID");
             
             Movie movie = manager.findMovieID(id);
             ArrayList<Movie> movieArrayList;

@@ -13,16 +13,17 @@ public class Orders implements Serializable {
     private String userID;
     private Date purchaseDate;
     private String status;
-    private Double totalCost;
     private String payment;
+    private String totalCost;
     
-    public Orders(String ID, String userID, Date purchaseDate, String status, Double totalCost, String payment) {
+    
+    public Orders(String ID, String userID, Date purchaseDate, String status, String payment, String totalCost) {
         this.ID = ID;
         this.userID = userID;
         this.purchaseDate = purchaseDate;
         this.status = status;
-        this.totalCost = totalCost;
-        this.payment = payment;                
+        this.payment = payment;
+        this.totalCost = totalCost;                
     }
     
     public Orders() {}
@@ -39,9 +40,9 @@ public class Orders implements Serializable {
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
     
-    public Double getTotalCost() { return totalCost; }
-    public void setTotalCost(Double totalCost) { this.totalCost = totalCost; }
-    
     public String getPayment() { return payment; }
     public void setPayment(String payment) { this.payment = payment; }
+    
+    public String getTotalCost() { return totalCost; }
+    public void setTotalCost(String totalCost) { this.totalCost = totalCost; }
 }

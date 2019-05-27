@@ -46,7 +46,7 @@
                      <form action="viewAccessLog.jsp">
                          <button>View Access Logs</button>
                      </form>
-                     <form action="customerHome.jsp">
+                     <form action="viewUserOrders.jsp">
                          <button>View Previous Orders</button>
                      </form>
                 </div>

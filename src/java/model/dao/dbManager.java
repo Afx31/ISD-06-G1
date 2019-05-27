@@ -191,4 +191,21 @@ public class dbManager {
         String sql = "INSERT INTO archive.orders VALUES('"+ID+"', '"+userID+"', '"+dft.format(ldt)+"', '"+status+"', '"+payment+"', '"+totalCost+"')";
         st.executeUpdate(sql);
     }
+    
+    public ArrayList<Orders> findAllUserOrders(String userID) throws SQLException {
+        String sql = "SELECT * FROM archive.orders WHERE userID = '" + userID + "'";
+        ResultSet rs = st.executeQuery(sql);
+        ArrayList<Orders> orders = new ArrayList<>();
+        while(rs.next()) {
+            String id = rs.getString("ID");
+            String usersID = rs.getString("USERID");
+            Date date = rs.getDate("PURCHASEDATE");
+            String status = rs.getString("STATUS");
+            String payment = rs.getString("PAYMENT");
+            String totalCost = rs.getString("TOTALCOST");
+            Orders order = new Orders(id, usersID, date, status, payment, totalCost); 
+            orders.add(order);
+        }
+        return orders;
+    }
 }

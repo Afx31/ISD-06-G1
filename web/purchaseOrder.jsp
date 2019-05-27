@@ -44,19 +44,16 @@
                 String orderID = Integer.toString(tempRndID);
 
                 //set value for User's ID
-                //String userID = users.getID(); 
-                String userID = "1"; //temp dataaaaaaaaaaa
+                String userID = users.getID();
 
                 //calc the total price with the number of copies selected by the user                
                 Double totalCost = 0.00;
                 int i = 0;
                 for (Movie m : movieArrayList) {
                     totalCost = totalCost + (Double.parseDouble(m.getPrice()) * Double.parseDouble(numberOfCopies[i]));
-                    
-                    //int decrement = Integer.parseInt(movie.getAvailableCopies()) - Integer.parseInt(numberOfCopies[i]);
+                                        
                     int decrement = Integer.parseInt(m.getStock()) - Integer.parseInt(numberOfCopies[i]);                    
                     manager.updateMovieStock(m.getID(), String.valueOf(decrement));
-                    //manager.updateMovie(m.getID(), m.getGenre(), m.getDirector(), m.getPrice(), String.valueOf(decrement), m.getTitle(), m.getPublished());
                     
                     if (Integer.parseInt(m.getStock()) < Integer.parseInt(numberOfCopies[i])) {
                         invalid = true;
@@ -67,7 +64,6 @@
                 if (!invalid) {
                     //Format the totalCost to 2 deceimal place
                     DecimalFormat df = new DecimalFormat("#.##");
-                    //df.setRoundingMode(RoundingMode.UP);
 
                     //add new order to the database Orders table                    
                     manager.addOrder(orderID, userID, "Ordered", paymentMethod, String.valueOf(df.format(totalCost)));                    

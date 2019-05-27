@@ -22,13 +22,9 @@
             movieArrayList = (ArrayList<Movie>)session.getAttribute("movieList");
         %>
         <div class="topnav">
-            <a href="login.jsp">Log Out</a>
-            <a>My Account</a>
-            <a href="cart.jsp">My Cart</a>
-            <a href="customerHome.jsp">Find Movies</a>
-            <a href="staffHome.jsp">Staff Functions</a>
-            <a href="login.jsp">Login</a>
-            <a href="register.jsp">Register</a>
+            <jsp:include page="header.jsp" flush="true" />
+            <a href="myAccount.jsp">My Account</a>
+            <a href="searchMovie.jsp">Find Movies</a>
             <a><b>The Archive</b></a>
         </div>
         <div class="content">
