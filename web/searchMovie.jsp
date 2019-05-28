@@ -41,6 +41,7 @@
                 <td><b>Director</b></td>
                 <td><b>Cost</b></td>
                 <td><b>In Stock?</b></td>
+                <td><b>Add to Cart</b></td>
             </tr>
             <%
             String inStock;
@@ -60,7 +61,7 @@
                     <% if (inStock != "0") { %>
                         <form action="addToCart.jsp" method="post">
                             <input type="hidden" name="selectedMovieID" value="<%=rs.getString(1)%>"/>
-                            <input type="submit" value="Select" />
+                            <input type="submit" value="Add to Cart" />
                         </form>
                     <% } else { %>
                         <!-- some error msg | no copies available -->

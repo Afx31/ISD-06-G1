@@ -14,12 +14,13 @@ public class dbManager {
         st = conn.createStatement();
     }
 
-    public ResultSet findMovie(String title) throws SQLException{
+    public ResultSet findMovie(String search) throws SQLException{
+        search = search.toLowerCase();
         String sql;
-        if (title == ""){
+        if (search == ""){
             sql = "SELECT * FROM archive.movie";
         } else {
-            sql = "SELECT * FROM archive.movie WHERE lower(title) LIKE '%" + title.toLowerCase() + "%'";
+            sql = "SELECT * FROM archive.movie WHERE lower(title) LIKE '%" + search + "%' OR lower(genre) LIKE '%" + search + "%' OR lower(director) LIKE '%" + search + "%'";
         }
         ResultSet rs = st.executeQuery(sql);
         return rs;

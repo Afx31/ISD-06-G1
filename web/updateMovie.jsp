@@ -20,9 +20,9 @@
 <%
     String id = request.getParameter("u_id");
     dbManager manager = (dbManager)session.getAttribute("manager");
-    System.out.println(id);
-    Movie m = manager.findMovieID(id);
-    System.out.println(m.getID());
+    //System.out.println(id);
+    //Movie m = manager.findMovieID(id);
+    //System.out.println(m.getID());
 %>
 
 <body>
@@ -34,7 +34,10 @@
         <a><b>The Archive</b></a>
     </div>
     <div>
-        
+        <%
+        try {
+            Movie m = manager.findMovieID(id);    
+        %>
         <h1>Updating <%=m.getTitle()%></h1>
         <form action="confirmUpdate.jsp" method="post">
             <input type="text" name="id" placeholder="Movie ID" value="<%=m.getID()%>">
@@ -47,6 +50,9 @@
             <button type="submit">Update Movie</button>
         </form> 
         <a href="staffHome.jsp">Back to manage more movies</a>
+        <%} catch (Exception e) {%>
+        <p>Movie could not be found </p>
+        <%}%>
         
     </div>
     

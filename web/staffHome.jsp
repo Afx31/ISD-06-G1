@@ -67,21 +67,16 @@
                     <td><b>ID</b></td>
                     <td><b>Title</b></td>
                     <td><b>Cost</b></td>
-                    <td><b>In Stock?</b></td>
+                    <td><b>Stock</b></td>
                 </tr>
                 <%
-                String inStock;
                 while(rs.next()){
-                if(Integer.parseInt(rs.getString(5)) > 0){
-                    inStock = "Yes";
-                } else 
-                    inStock = "No";
                 %>
                 <tr>
                     <td><p><%=rs.getString(1)%></p></td>
                     <td><p><%=rs.getString(6)%></p></td>
                     <td><p><%=rs.getString(4)%></p></td>
-                    <td><p><%=inStock%></p></td>
+                    <td><p><%=rs.getString(5)%></p></td>
                 </tr><%}%> 
             </table>
         </div>
