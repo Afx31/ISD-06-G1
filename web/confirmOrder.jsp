@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>JSP Page</title>
+        <title>The Archive | Confirm Order</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="CSS/main.css">
     </head>
@@ -50,9 +50,9 @@
                 </table>
                 <h3>Your details:</h3>
                 <table>
-                    <tr><td><b>Email: </b>email</tr></td>
-                    <tr><td><b>First Name: </b>f name</tr></td>
-                    <tr><td><b>Last Name: </b>l name</tr></td>
+                    <tr><td><b>Email: </b><%=users.getEmail()%></tr></td>
+                    <tr><td><b>First Name: </b><%=users.getFirstName()%></tr></td>
+                    <tr><td><b>Last Name: </b><%=users.getLastName()%></tr></td>
                     <tr><td><b>Order Total: </b><%=totalCost%></tr></td>
                     <tr>
                         <td><b>Payment Method:</b></td>

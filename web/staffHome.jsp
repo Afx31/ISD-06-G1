@@ -80,6 +80,17 @@
                 </tr><%}%> 
             </table>
         </div>
+        <div>
+            <h1>Search for a customers order history</h1>
+            <form action="viewCustomersOrders.jsp" method="post">    
+                <table>
+                    <tr>
+                        <td><input type="text" name="customersEmail" placeholder="Enter customers email"></td>
+                        <td><button style="margin-top:0px" type="submit">Search</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
 </body>
 </html>
