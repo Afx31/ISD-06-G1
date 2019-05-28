@@ -21,7 +21,7 @@
         <a href="searchMovie.jsp">Find Movies</a>
         <a><b>The Archive</b></a>
     </div>
-    <div>
+    <div class="centerboxhome">
         <h1> Lets find some movies</h1>
         <h2 style="text-align: left"> Here are some titles:</h2>
         <form action="searchMovie.jsp" method="post">

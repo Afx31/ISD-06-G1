@@ -66,16 +66,16 @@ body {
   text-align: center;
 }
 
-centerboxhome {
+.centerboxhome {
   margin: auto;
   background-color: #fff;
   border-radius: 25px;
-  margin-top: 25px;
   padding: 25px;
-  width: 75%;
+  width: 70%;
   height: 100%;
   text-align: center;
 }
+
 input[type=text] {
   width: 100%;
   background-color: lightgrey;

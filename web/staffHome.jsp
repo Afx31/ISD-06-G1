@@ -27,7 +27,7 @@
         dbManager manager = (dbManager)session.getAttribute("manager");
         ResultSet rs = manager.findMovie("");
     %>
-    <div>
+    <div class="centerboxhome">
         <div>
             <h1>Do you need to add a movie?</h1>
             <form action="staffAddMovie.jsp" method="post">    
