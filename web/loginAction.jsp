@@ -27,7 +27,7 @@
                 session.setAttribute("userLogin", user);
                 if(user.getRole().equalsIgnoreCase("c")) {
                     response.sendRedirect("customerHome.jsp");  
-                } else if(user.getRole().equalsIgnoreCase("r") || user.getRole().equalsIgnoreCase("a")) {
+                } else if(user.getRole().equalsIgnoreCase("s") || user.getRole().equalsIgnoreCase("a")) {
                     response.sendRedirect("staffHome.jsp");  
                 }                   
             }else{
