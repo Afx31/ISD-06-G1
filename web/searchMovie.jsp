@@ -29,10 +29,10 @@
         <jsp:include page="header.jsp" flush="true" />
         <a href="myAccount.jsp">My Account</a>
         <a href="cart.jsp">My Cart</a>
-        <a href="searchMovie">Find Movies</a>
+        <a href="searchMovie.jsp">Find Movies</a>
         <a><b>The Archive</b></a>
     </div>
-    <div>
+    <div class="centerboxhome">
         <h1>Here are the results</h1>
         <table style="width: 100%">
             <tr>
@@ -46,10 +46,12 @@
             <%
             String inStock;
             while(rs.next()){
-            if(Integer.parseInt(rs.getString(5)) > 0){
-                inStock = "Yes";
-            } else 
-                inStock = "No";
+                
+                if (Integer.parseInt(rs.getString(5)) > 0) {
+                    inStock = "Yes";
+                } else {
+                    inStock = "No";
+                }
             %>
             <tr>
                 <td><h3><%=rs.getString(6)%></h3></td>
@@ -58,13 +60,14 @@
                 <td><p><%=rs.getString(4)%></p></td>
                 <td><p><%=inStock%></p></td>
                 <td>
-                    <% if (inStock != "0") { %>
+                    <% if (inStock == "No") { %>
+                        <p>Not Avaliable</p>
+                        
+                    <% } else { %>
                         <form action="addToCart.jsp" method="post">
                             <input type="hidden" name="selectedMovieID" value="<%=rs.getString(1)%>"/>
                             <input type="submit" value="Add to Cart" />
                         </form>
-                    <% } else { %>
-                        <!-- some error msg | no copies available -->
                     <% } %>
                 </td>
             </tr><%}%> 

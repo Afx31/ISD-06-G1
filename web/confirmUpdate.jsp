@@ -35,7 +35,7 @@
         <a>Find Movies</a>
         <a><b>The Archive</b></a>
     </div>
-    <div>
+    <div class="centerboxhome">
         <%
             
             dbManager manager = (dbManager)session.getAttribute("manager");

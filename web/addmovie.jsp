@@ -41,8 +41,8 @@
             dbManager manager = (dbManager)session.getAttribute("manager");
             manager.addMovie(id,genre,director,price,stock,title,published);
         %>
-        <p>Movie Added!</p>
-        <a href="staffHome.jsp">Back to manage movies</a>
+        <p style="text-align: center">Movie Added!</p>
+        <a style="text-align: center" href="staffHome.jsp">Back to manage movies</a>
         
     </div>
     

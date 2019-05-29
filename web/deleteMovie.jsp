@@ -20,7 +20,6 @@
 <%
     String id = request.getParameter("d_id");
     dbManager manager = (dbManager)session.getAttribute("manager");
-    
 %>
 
 <body>
@@ -31,14 +30,19 @@
         <a>Find Movies</a>
         <a><b>The Archive</b></a>
     </div>
-    <div>
+    <div class="centerboxhome">
         <%
-            //System.out.println(id);
+            try {
             manager.deleteMovie(id);
-        %>
-        <p>Movie Deleted :(</p>
-        <a href="staffHome.jsp">Back to Add another movie</a>
-        
+            Movie m = manager.findMovieID(id);
+            %>
+                <p>Error! Movie not found</p>
+            <%
+            
+            } catch (Exception e) {%>
+                <p>Movie Deleted :(</p>
+                <a href="staffHome.jsp">Back to Add another movie</a>
+            <%}%>  
     </div>
     
     

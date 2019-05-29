@@ -25,7 +25,7 @@
         <a>Find Movies</a>
         <a><b>The Archive</b></a>
     </div>
-    <div>
+    <div class="centerboxhome">
         <h1>Lets add some movies</h1>
         <form action="addmovie.jsp" method="post">
           <input type="text" name="id" placeholder="Movie ID">

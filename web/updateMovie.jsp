@@ -33,7 +33,7 @@
         <a>Find Movies</a>
         <a><b>The Archive</b></a>
     </div>
-    <div>
+    <div class="centerboxhome">
         <%
         try {
             Movie m = manager.findMovieID(id);    

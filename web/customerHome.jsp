@@ -27,7 +27,7 @@
         <form action="searchMovie.jsp" method="post">
             <table>
                 <tr>
-                    <td><input style="width:750px" type="text" name="search" placeholder="Search Title... Leave blank for all movies"></td>
+                    <td><input style="width: 100%" type="text" name="search" placeholder="Search Title, Genre or Director... Leave blank for all movies"></td>
                     <td><button style="margin-top:0px" type="submit">Search</button></td>
                 </tr>
             </table>
