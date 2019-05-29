@@ -72,6 +72,18 @@
             </form>
         </div>
         <div>
+            <h1>Fulfil Customers Orders</h1>
+            <form action="processCustomersOrders.jsp" method="post">    
+                <table>
+                    <tr>
+                        <tr>
+                            <td><button style="margin-top:0px" type="submit">Process Orders</button></td>
+                        </tr>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div>
             <h1>List of Movies</h1>
             <table style="width: 100%">
                 <tr>

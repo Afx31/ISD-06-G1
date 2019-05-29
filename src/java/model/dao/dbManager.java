@@ -209,4 +209,45 @@ public class dbManager {
         }
         return orders;
     }
+    
+    public ArrayList<Orders> findProcessingOrders() throws SQLException {
+        String sql = "SELECT * FROM archive.orders WHERE STATUS = '" + "Processing" + "'";
+        ResultSet rs = st.executeQuery(sql);
+        ArrayList<Orders> orders = new ArrayList<>();
+        while(rs.next()) {
+            String id = rs.getString("ID");
+            String usersID = rs.getString("USERID");
+            Date date = rs.getDate("PURCHASEDATE");
+            String status = rs.getString("STATUS");
+            String payment = rs.getString("PAYMENT");
+            String totalCost = rs.getString("TOTALCOST");
+            Orders order = new Orders(id, usersID, date, status, payment, totalCost); 
+            orders.add(order);
+        }
+        return orders;
+    }
+    
+    public void confirmOrder(String orderID) throws SQLException {
+        String sql = "UPDATE archive.orders SET STATUS='" + "Completed" +"' WHERE ID='"+orderID+"'";
+        st.executeUpdate(sql);
+    }
+    
+    public void addMovieOrder(String orderID, String movieID, String quantity) throws SQLException {
+        String sql = "INSERT INTO archive.movieorder VALUES('"+orderID+"', '"+movieID+"', '"+quantity+"')";
+        st.executeUpdate(sql);
+    }
+    
+    public ArrayList<MovieOrder> findAllUserMovieOrders(String orderIDSearch) throws SQLException {
+        String sql = "SELECT * FROM archive.movieorder WHERE orderid = '" + orderIDSearch + "'";
+        ResultSet rs = st.executeQuery(sql);
+        ArrayList<MovieOrder> movieOrders = new ArrayList<>();
+        while(rs.next()) {
+            String orderID = rs.getString("ORDERID");
+            String movieID = rs.getString("MOVIEID");
+            String quantity = rs.getString("QUANTITY");
+            MovieOrder movieOrder = new MovieOrder(orderID, movieID, quantity); 
+            movieOrders.add(movieOrder);
+        }
+        return movieOrders;
+    }
 }

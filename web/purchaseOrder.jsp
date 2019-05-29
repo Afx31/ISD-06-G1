@@ -5,12 +5,9 @@
 --%>
 
 <%@page import="java.math.RoundingMode"%>
-<%@page import="java.text.DecimalFormat"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
+<%@page import="java.text.*"%>
+<%@page import="java.util.*"%>
 <%@page import="model.dao.dbManager"%>
-<%@page import="java.util.Random"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -58,6 +55,10 @@
                     if (Integer.parseInt(m.getStock()) < Integer.parseInt(numberOfCopies[i])) {
                         invalid = true;
                     }
+                    
+                    //Create entry for the MovieOrder table in the database
+                    manager.addMovieOrder(orderID, m.getID(), numberOfCopies[i]);
+                    
                     i++;
                 }
 
@@ -66,7 +67,7 @@
                     DecimalFormat df = new DecimalFormat("#.##");
 
                     //add new order to the database Orders table                    
-                    manager.addOrder(orderID, userID, "Ordered", paymentMethod, String.valueOf(df.format(totalCost)));                    
+                    manager.addOrder(orderID, userID, "Processing", paymentMethod, String.valueOf(df.format(totalCost)));
                     
                     session.setAttribute("orderNumberID", orderID);
                     session.setAttribute("quantityErr", " ");                    

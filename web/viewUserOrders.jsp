@@ -23,29 +23,29 @@
             
             dbManager manager = (dbManager)session.getAttribute("manager"); 
             ArrayList<Orders> orders = manager.findAllUserOrders(userID);
+            ArrayList<MovieOrder> movieOrder = new ArrayList<MovieOrder>();
+            
+            for (Orders o : orders) {
+                movieOrder = manager.findAllUserMovieOrders(o.getID());
+            }
+            
         %>
         <div class="topnav">
             <jsp:include page="header.jsp" flush="true" />
             <a href="myAccount.jsp">My Account</a>
-            <a href="staffHome.jsp">Home</a>
         </div>
         <div class="content">
             <table>
                 <tr>
                     <th>Order ID</th>
-                    <th>Purchased Date</th>
-                    <th>Status</th>
-                    <th>Payment Method</th>
-                    <th>Total Cost</th>
-                    <th> </th>
+                    <th>Movie ID</th>
+                    <th>Quantity</th>
                 </tr>
-                <% for (Orders order : orders) {%>
+                <% for (MovieOrder movie : movieOrder) {%>
                 <tr>
-                    <th><%=order.getID()%></th>
-                    <th><%=order.getPurchaseDate()%></th>
-                    <th><%=order.getStatus()%></th>
-                    <th><%=order.getPayment()%></th>
-                    <th><%=order.getTotalCost()%></th>
+                    <th><%=movie.getOrderID()%></th>
+                    <th><%=movie.getMovieID()%></th>
+                    <th><%=movie.getQuantity()%></th>
                 </tr>
                 <% } %>
             </table>
