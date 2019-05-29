@@ -34,7 +34,7 @@
     </div>
     <div class="centerboxhome">
         <h1>Here are the results</h1>
-        <table style="width: 100%">
+        <table>
             <tr>
                 <td><b>Title</b></td>
                 <td><b>Genre</b></td>
