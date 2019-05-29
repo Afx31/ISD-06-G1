@@ -37,11 +37,15 @@
     </div>
     <div>
         <%
-            
+       
             dbManager manager = (dbManager)session.getAttribute("manager");
-            manager.addMovie(id,genre,director,price,stock,title,published);
+            try {manager.addMovie(id,genre,director,price,stock,title,published);%>
+                <p style="text-align: center">Movie Added!</p>
+            <%} catch(Exception e) {%>
+                <p style="text-align: center">Error! Movie could not be added. ID already exists?</p>
+            <%}
         %>
-        <p style="text-align: center">Movie Added!</p>
+        
         <a style="text-align: center" href="staffHome.jsp">Back to manage movies</a>
         
     </div>
