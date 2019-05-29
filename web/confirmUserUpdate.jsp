@@ -18,8 +18,9 @@
     </head>
 
     <body>
-            <%            
-                String id = request.getParameter("id");
+            <%       
+                Users user = (Users)session.getAttribute("userLogin");
+                String id = user.getID();
                 String firstname = request.getParameter("firstname");
                 String lastname = request.getParameter("lastname");
                 String phone = request.getParameter("phone");
@@ -27,6 +28,8 @@
                 String email = request.getParameter("email");
                 dbManager manager = (dbManager) session.getAttribute("manager");
                 manager.updateUser(id, firstname, lastname, phone, password, email);
+                Users updatedUser = manager.findUser(email);
+                session.setAttribute("userLogin", updatedUser);                
                 response.sendRedirect("myAccount.jsp");
             %>
     </body>

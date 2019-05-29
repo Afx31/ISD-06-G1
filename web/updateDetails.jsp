@@ -25,7 +25,6 @@
         </div>
         <h1>Update Your Details</h1>            
         <form action="confirmUserUpdate.jsp" method="post">
-            <input type="text" id="name" name="id" value="<%= user.getID()%>">
             <input type="text" id="name" name="firstname" placeholder = "firstname" value="<%= user.getFirstName()%>">
             <input type="text" id="name" name="lastname" placeholder = "lastname" value="<%= user.getLastName()%>">
             <input type="email" id="email" name="email" placeholder = "email" value="<%= user.getEmail()%>">
