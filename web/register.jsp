@@ -30,21 +30,16 @@
                     <a style="font-size: 12px" href="login.jsp" >Already A Member?</a><br>  
                     <button type="submit">Register</button>
                 </form>
-                <div class="emptyFields">
-                    <c:if test="${emptyFields!=null}"> 
-                        <p><b> <c:out value="${emptyFields}"/> </b></p> 
+                <div class="invalidInput">
+                    <c:if test="${invalidInput!=null}"> 
+                        <p><b> <c:out value="${invalidInput}"/> </b></p> 
                     </c:if>
-                    <div class="wrongPassword">
-                        <c:if test="${wrongPassword!=null}"> 
-                            <p><b> <c:out value="${wrongPassword}"/> </b></p> 
-                        </c:if>
-                    </div>
                 </div>
             </div>
             <div class="footer">
                 <p>Introduction to Software Development - 13217702, 12924991, 12747717, 13208297</p>
             </div>
-            ${emptyFields = null}                                
-            ${wrongPassword = null}     
+        </div>
+        ${invalidInput = null} 
     </body>
 </html>

@@ -30,14 +30,18 @@
                 session.setAttribute("emptyFields", "Fill in all Fields");
                 response.sendRedirect("staffRegister.jsp");
             } else if (password.equals(Cpassword)) {
-                manager.addStaff(firstname, lastname, phone, password, email, role);
-                response.sendRedirect("login.jsp");
+                if (!phone.matches("[0-9]+")) {
+                    session.setAttribute("invalidInput", " Phone is not a number ");
+                    response.sendRedirect("staffRegister.jsp");
+                } else {
+                    manager.addStaff(firstname, lastname, phone, password, email, role);
+                    response.sendRedirect("login.jsp");
+                }
             } else {
-                session.setAttribute("wrongPassword", "Passwords do not match");
+                session.setAttribute("invalidInput", "Passwords do not match");
                 response.sendRedirect("staffRegister.jsp");
             }
         %>    
-
     </body>
 </html>
 

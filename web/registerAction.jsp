@@ -24,17 +24,27 @@
             String phone = request.getParameter("r_phone");
             String password = request.getParameter("r_password");
             String Cpassword = request.getParameter("r_Cpassword");
+            String tos = request.getParameter("r_tos");
             if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || Cpassword.isEmpty()) {
-               session.setAttribute("emptyFields", "Fill in all Fields");   
-                response.sendRedirect("register.jsp");               
+                session.setAttribute("invalidInput", "Fill in all Fields");
+                response.sendRedirect("register.jsp");
+            }
+            else if (tos == null) {
+                session.setAttribute("invalidInput", "Please agree to TOS");
+                response.sendRedirect("register.jsp");
             } else if (password.equals(Cpassword)) {
-                manager.addUser(firstname, lastname, phone, password, email);
-                response.sendRedirect("login.jsp");
+                if (!phone.matches("[0-9]+")) {
+                    session.setAttribute("invalidInput", " Phone is not a number ");
+                    response.sendRedirect("register.jsp");
+                } else {
+                    manager.addUser(firstname, lastname, phone, password, email);
+                    response.sendRedirect("login.jsp");
+                }
             } else {
-              session.setAttribute("wrongPassword", "Passwords do not match");
-              response.sendRedirect("register.jsp");
-           }
+                session.setAttribute("invalidInput", "Passwords do not match");
+                response.sendRedirect("register.jsp");
+            }
         %>   
-        
+
     </body>
 </html>

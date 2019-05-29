@@ -20,8 +20,8 @@
             <a href="customerHome.jsp"><b>The Archive</b></a>
         </div>
         <div class="content">
-          <div class="centerbox2">
-            <h1>Please provide the following!</h1>
+            <div class="centerbox2">
+                <h1>Please provide the following!</h1>
                 <form action="staffRegisterAction.jsp" method="post">
                     <input type="text" id="name" name="r_fname" placeholder="First Name">
                     <input type="text" id="name" name="r_lname" placeholder="Last Name">
@@ -30,22 +30,16 @@
                     <input type="password" id="password" name="r_password" placeholder="Password">
                     <input type="password" id="password" name="r_Cpassword" placeholder="Confirm Password">
                     <input type="text" id="role"  name="r_role" placeholder="Role">                     
-                    <label class="tos" for="tos">Agree to Terms of Service</label> <input type="checkbox" name="r_tos">
                     <button type="submit">Register</button>
-            </form>
-                <div class="emptyFields">
-                    <c:if test="${emptyFields!=null}"> 
-                        <p><b> <c:out value="${emptyFields}"/> </b></p> 
+                </form>
+                <div class="invalidInput">
+                    <c:if test="${invalidInput!=null}"> 
+                        <p><b> <c:out value="${invalidInput}"/> </b></p> 
                     </c:if>
-                    <div class="wrongPassword">
-                        <c:if test="${wrongPassword!=null}"> 
-                            <p><b> <c:out value="${wrongPassword}"/> </b></p> 
-                        </c:if>
-                    </div>
                 </div>
             </div>
-            ${emptyFields = null}                                
-            ${wrongPassword = null}                
+                    </div>        
+            ${invalidInput = null}   
     </body>
 </html>
 

@@ -198,6 +198,10 @@ button:hover{
     color: red; 
 }
 
+.invalidInput p {
+    font-size: 12px;
+    color: red; 
+}
 
 table {
   background-color: #ffffff;
