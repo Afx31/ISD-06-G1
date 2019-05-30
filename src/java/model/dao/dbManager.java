@@ -187,7 +187,13 @@ public class dbManager {
         return accessLog;
     }
 
-    //Add a student-data into the database
+    /*
+        Add the user into the database
+        For a customer let the role be 'c' for customer
+        The individual id of the user will increase by 1 for every new user created
+        The sql is ordered by the user ID number in the database
+        The user is added into the database when the sql is executed
+    */
     public void addUser(String firstname, String lastname, String phone, String password, String email) throws SQLException {
         String role = "c";
         int rsCount = 0;
@@ -200,6 +206,12 @@ public class dbManager {
         st.executeUpdate(sql);
     }
 
+    /*
+        Allow the staff to add any user into the database
+        The individual id of the user will increase by 1 for every new user created
+        The sql is ordered by the user ID number in the database
+        The user is added into the database when the sql is executed
+    */
     public void addStaff(String firstname, String lastname, String phone, String password, String email, String role) throws SQLException {
         int rsCount = 0;
         String sqlcount = "SELECT * FROM archive.users ORDER BY length(ID) DESC, ID DESC";
@@ -211,13 +223,13 @@ public class dbManager {
         st.executeUpdate(sql);
     }
 
-    //update a student details in the database
+    //update a user details in the database when the sql is executed 
     public void updateUser(String ID, String firstName, String lastName, String phone, String password, String email) throws SQLException {
         String sql = "UPDATE archive.users SET ID='" + ID + "', FIRSTNAME='" + firstName + "', LASTNAME='" + lastName + "', PHONE='" + phone + "', PASSWORD='" + password + "', EMAIL='" + email + "' WHERE ID='" + ID + "'";
         st.executeUpdate(sql);
     }
 
-    //delete a student from the database
+    //delete a user from the database when the sql is executed
     public void deleteUser(String ID) throws SQLException {
         String sql = "DELETE FROM archive.users WHERE ID = '" + ID + "'";
         st.executeUpdate(sql);
