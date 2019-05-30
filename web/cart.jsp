@@ -28,17 +28,15 @@
             <div style="text-align: center;">
                 <table>
                     <tr>
-                        <th><input type="button" value="Choose Another Movie" onclick="location.href = 'customerHome.jsp'"></th>
+                        <th><button style="margin-top: 0px" onclick="location.href = 'customerHome.jsp'">Choose another movie</button></th>
                         <th>
-                            <!--<form action="purchaseOrderLoginCheck.jsp" method="get">-->
-                            <form action="confirmOrder.jsp" method="get"> 
-                                <!--<input type="hidden" name="id" value="{title}"/>-->
-                                <input type="submit" value="Purchase Order"/>
+                            <form action="purchaseOrderLoginCheck.jsp" method="get">
+                                <button style="margin-top:0px">Purchase Order</button>
                             </form>
                         </th>
                         <th>
                             <form action="cartCancelledConfirm.jsp" method="get">
-                                <input type="submit" value="Cancel Order">     
+                                <button style="margin-top:0px">Cancel Order</button>     
                             </form>
                         </th>
                     </tr>

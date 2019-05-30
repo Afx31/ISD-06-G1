@@ -62,7 +62,7 @@
                     <% } else { %>
                         <form action="addToCart.jsp" method="post">
                             <input type="hidden" name="selectedMovieID" value="<%=rs.getString(1)%>"/>
-                            <input type="submit" value="Add to Cart" />
+                            <button style="margin-top:0px">Add To Cart</button>
                         </form>
                     <% } %>
                 </td>

@@ -58,7 +58,7 @@
                                 <option value="MasterCard">MasterCard</option>
                                 <option value="Visa">Visa</option>
                             </select></td>
-                            <td><input type="submit" value="Purchase Order"></td>
+                            <td><button style="margin-top:0px">Purchase Order</button></td>
                     </tr>
                 </table>
             </form>

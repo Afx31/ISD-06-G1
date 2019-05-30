@@ -69,7 +69,7 @@
         </div>
         <div>
             <h1>Fulfil Customers Orders</h1>
-            <form action="processCustomersOrders.jsp" method="post">    
+            <form action="processCustomerOrders.jsp" method="post">    
                 <table>
                     <tr>
                         <tr>
