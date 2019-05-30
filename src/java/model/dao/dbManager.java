@@ -11,10 +11,12 @@ public class dbManager {
 
     private Statement st;
 
+    // Creates the connection to run queries to the Database
     public dbManager(Connection conn) throws SQLException {
         st = conn.createStatement();
     }
-
+    
+    // Takes in a search term and uses that to search for Titles, Genres or Directors using SQL OR Statements making everything lower case
     public ResultSet findMovie(String search) throws SQLException {
         search = search.toLowerCase();
         String sql;
@@ -26,29 +28,32 @@ public class dbManager {
         ResultSet rs = st.executeQuery(sql);
         return rs;
     }
-
+    
+    // Takes in the attributes of a movie and adds them to the database
     public void addMovie(String ID, String Genre, String Director, String Price, String Stock, String Title, String Published) throws SQLException {
-        //String sql = "INSERT INTO archive.movie VALUES ('" + ID + "', " + Genre + "', )";
         String sql = "INSERT INTO archive.movie VALUES('" + ID + "', '" + Genre + "', '" + Director + "', '" + Price + "', '" + Stock + "', '" + Title + "', '" + Published + "')";
         st.executeUpdate(sql);
     }
 
+    // Take in the ID of a Movie and removes it from the database
     public void deleteMovie(String ID) throws SQLException {
         String sql = "DELETE FROM movie WHERE ID = '" + ID + "'";
         st.executeUpdate(sql);
     }
 
+    // Takes in the attributes of a movie already in the database and updates them to the database
     public void updateMovie(String ID, String Genre, String Director, String Price, String Stock, String Title, String Published) throws SQLException {
-        //String sql = "UPDATE archive.movie SET ID='"+ID+"', GENRE='"+Genre+"', DIRECTOR='"+Director+"', PRICE='"+Price+"', STOCK='"+Stock+"', TITLE='"+Title+"', PUBLISHED='"+Published+"')";
         String sql = "UPDATE archive.movie SET GENRE='" + Genre + "', DIRECTOR='" + Director + "', PRICE='" + Price + "', STOCK='" + Stock + "', TITLE='" + Title + "', PUBLISHED='" + Published + "' WHERE ID='" + ID + "'";
         st.executeUpdate(sql);
     }
 
+    // Takes in the ID and new stock level of a movie and updates it in the database
     public void updateMovieStock(String ID, String stock) throws SQLException {
         String sql = "UPDATE archive.movie SET STOCK='" + stock + "' WHERE ID='" + ID + "'";
         st.executeUpdate(sql);
     }
 
+    // Find a set of Movies by their ID and return details about the movies in a Result Set
     public Movie findMovieID(String id) throws SQLException {
         String sql = "SELECT * FROM archive.movie WHERE id = '" + id + "'";
         ResultSet rs = st.executeQuery(sql);

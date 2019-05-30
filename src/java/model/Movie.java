@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 
 public class Movie implements Serializable {
+    //Fields for Movie Object
     private String ID;
     private String genre;
     private String director;
@@ -10,9 +11,9 @@ public class Movie implements Serializable {
     private String stock;
     private String title;    
     private String published;
-    //private String image;
-
-    public Movie(String ID, String genre, String director, String price, String stock, String title, String published/*, String image*/) {
+    
+    //Constructor for Movie Object
+    public Movie(String ID, String genre, String director, String price, String stock, String title, String published) {
         this.ID = ID;
         this.genre = genre;
         this.director = director;
@@ -20,10 +21,10 @@ public class Movie implements Serializable {
         this.stock = stock;
         this.title = title;
         this.published = published;
-        //this.image = image;
     }
 
     public Movie() {}
+    //Getters and Setters for Movie Object
     
     public String getID() { return ID; }    
     public void setID(String ID) { this.ID = ID; }
