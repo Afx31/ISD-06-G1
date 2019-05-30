@@ -43,9 +43,11 @@
                      <form action="viewAccessLog.jsp">
                          <button>View Access Logs</button>
                      </form>
-                     <form action="viewUserOrders.jsp">
-                         <button>View Previous Orders</button>
-                     </form>
+                     <%if(user.getRole().equalsIgnoreCase("c")) {%>
+                        <form action="viewUserOrders.jsp">
+                            <button>View Previous Orders</button>
+                        </form>
+                     <%}%>
                 </div>
             </div>
        <%}%>     
