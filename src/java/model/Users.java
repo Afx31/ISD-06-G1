@@ -68,7 +68,7 @@ public class Users implements Serializable{
         return phone;
     }
 
-    public void setPhone(String dob) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

@@ -66,7 +66,12 @@ public class dbManager {
         return movie;
     }
 
-//Find student by ID in the database
+    /*
+       Find student by Email in the database
+       Convert email into lowercase and then construct sql string
+       If there is a result then construct a new Users called user
+       Then return the user
+    */
     public Users findUser(String email) throws SQLException {
 
         String emailLower = email.toLowerCase();
@@ -86,7 +91,13 @@ public class dbManager {
         }
         return user;
     }
-
+    /*
+       Find all customers or all users depending on who is requesting it in the database
+       First check the role of the requester and if it is just a staff set sql string to customers only
+       Take the results and loop through
+       While looping construct a new user and add it to the arraylist
+       Return the array list after the loop
+    */
     public ArrayList<Users> findAllUsers(Users requester) throws SQLException {
         String sql = "SELECT * FROM archive.users";
         if (requester.getRole().equalsIgnoreCase("s")) {
@@ -108,14 +119,26 @@ public class dbManager {
         return users;
     }
 
-    //Check if a student exist in the database
+    /* 
+       Check if a student exist in the database
+       Convert email to lower case
+       Construct sql string and execute it
+       Return true if there is a result, otherwise it returns false
+    */
     public boolean checkUser(String email, String password) throws SQLException {
         String emailLower = email.toLowerCase();
         String sql = "SELECT * FROM archive.users WHERE Lower(EMAIL) = '" + emailLower + "' AND PASSWORD = '" + password + "' ";
         ResultSet rs = st.executeQuery(sql);
         return rs.next();
     }
-
+    
+    /* 
+       Create a new access log in the database
+       Setup date formats
+       Create sql string find biggest accesslog ID in database
+       Execute, take the ID and add 1 to it
+       Construct new sql string to input accesslog into database and then execute it
+    */
     public void addLog(String ID, String event) throws SQLException {
         DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime ldt = LocalDateTime.now();
@@ -130,12 +153,22 @@ public class dbManager {
         String sql = "INSERT INTO archive.accesslog VALUES('" + rsCount + "', '" + ID + "', '" + dft.format(ldt) + "', '" + event + "')";
         st.executeUpdate(sql);
     }
-
+    
+    // Delete access log from database
+    // Construct sql query and execute
     public void deleteLog(String ID) throws SQLException {
         String sql = "DELETE FROM accesslog WHERE ID = '" + ID + "'";
         st.executeUpdate(sql);
     }
-
+    
+    /* 
+       Find the access logs of the User
+       Create date time format
+       Construct sql query and execute
+       While there are results from the query 
+       Create a new AccessLog and add it to the accessLog array list
+       return the arraylist 
+    */
     public ArrayList<AccessLog> findAccessLogs(String UID) throws SQLException {
         DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String sql = "SELECT * FROM archive.accesslog WHERE USERID='" + UID + "'";
