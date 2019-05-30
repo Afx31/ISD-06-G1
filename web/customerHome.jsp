@@ -16,10 +16,6 @@
 <body>
     <div class="topnav">
         <jsp:include page="header.jsp" flush="true" />
-        <a href="myAccount.jsp">My Account</a>
-        <a href="cart.jsp">My Cart</a>
-        <a href="searchMovie.jsp">Find Movies</a>
-        <a><b>The Archive</b></a>
     </div>
     <div class="centerboxhome">
         <h1> Lets find some movies</h1>

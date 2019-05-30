@@ -14,8 +14,18 @@
         <link rel="stylesheet" href="CSS/main.css">
     </head>
     <body>
+        
         <%if((Users)session.getAttribute("userLogin")!=null) { %>
             <a href="logoutAction.jsp"><b>Logout</b></a>
+            <a href="myAccount.jsp">My Account</a>
+            <%Users user = (Users)session.getAttribute("userLogin");
+                if(user.getRole().equalsIgnoreCase("c")) {%>
+                    <a href="cart.jsp">My Cart</a>
+                    <a href="customerHome.jsp">Home</a>
+            <%  } else if(user.getRole().equalsIgnoreCase("s") || user.getRole().equalsIgnoreCase("a")) {%>
+                    <a href="viewAllUsers.jsp">View Users</a> 
+                    <a href="staffHome.jsp">Home</a>
+            <%  }%>
         <%} else { %>
             <a href="logoutAction.jsp"><b>Exit</b></a>
         <%} %>
