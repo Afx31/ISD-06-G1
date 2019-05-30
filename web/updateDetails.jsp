@@ -19,9 +19,6 @@
         <%if (session.getAttribute("userLogin") != null) {%>
         <div class="topnav">
             <jsp:include page="header.jsp" flush="true" />
-            <a href="customerHome.jsp">Home</a>
-            <a href="cart.jsp">My Cart</a>
-            <a>Find Movies</a>
         </div>
         <h1>Update Your Details</h1>            
         <form action="confirmUserUpdate.jsp" method="post">

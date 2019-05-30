@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="topnav">
-            <a><b>The Archive</b></a>
+            <jsp:include page="header.jsp" flush="true" />
         </div>
         
         <div class="content">

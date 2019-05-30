@@ -16,10 +16,7 @@
     </head>
     <body>
         <div class="topnav">
-            <a href="login.jsp">Log Out</a>
-            <a>My Account</a>
-            <a href="customerHome.jsp">Find Movies</a>
-            <a><b>The Archive</b></a>
+            <jsp:include page="header.jsp" flush="true" />
         </div>
         
         <div class="content">

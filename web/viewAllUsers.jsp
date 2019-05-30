@@ -22,8 +22,6 @@
         %>
         <div class="topnav">
             <jsp:include page="header.jsp" flush="true" />
-            <a href="myAccount.jsp">My Account</a>
-            <a href="staffHome.jsp">Home</a>
         </div>
         <div class="content">
             <table>

@@ -32,7 +32,6 @@
         %>
         <div class="topnav">
             <jsp:include page="header.jsp" flush="true" />
-            <a href="myAccount.jsp">My Account</a>
         </div>
         <div class="content">
             <table>

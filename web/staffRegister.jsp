@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="topnav">
-            <a href="customerHome.jsp"><b>The Archive</b></a>
+            <jsp:include page="header.jsp" flush="true" />
         </div>
         <div class="content">
             <div class="centerbox2">

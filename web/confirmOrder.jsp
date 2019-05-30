@@ -17,9 +17,6 @@
     <body>
         <div class="topnav">
             <jsp:include page="header.jsp" flush="true" />
-            <a href="myAccount.jsp">My Account</a>
-            <a href="cart.jsp">My Cart</a>
-            <a><b>The Archive</b></a>
         </div>
         <%
             Users users = (Users) session.getAttribute("userLogin");

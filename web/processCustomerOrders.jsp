@@ -21,7 +21,6 @@
         %>
         <div class="topnav">
             <jsp:include page="header.jsp" flush="true" />
-            <a href="staffHome.jsp">Home</a>
         </div>
         <div>
             <form action="staffHome.jsp" method="post">    
