@@ -17,6 +17,7 @@
             dbManager manager = (dbManager)session.getAttribute("manager"); 
             String id = request.getParameter("AccessLogID");
             manager.deleteLog(id);
+            response.sendRedirect("viewAccessLog.jsp"); 
         %>
     </body>
 </html>

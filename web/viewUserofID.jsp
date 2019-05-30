@@ -35,6 +35,10 @@
                     <%if(requester.getRole().equalsIgnoreCase("a")) {%>
                         <p>User's password is: <%= user.getPassword() %></p>  
                         <p>User's role is: <%= user.getRole() %></p>  
+                        <form action="deleteUserofID.jsp" method="post">
+                            <input type="hidden" name="DeleteUserID" value="<%=user.getID()%>"/>
+                            <button style="margin-top:0px">Delete User</button>
+                        </form>
                     <%}%>
                 </div>
             </div>
