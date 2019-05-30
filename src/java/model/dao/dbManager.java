@@ -266,8 +266,8 @@ public class dbManager {
         return orders;
     }
 
-    public void confirmOrder(String orderID) throws SQLException {
-        String sql = "UPDATE archive.orders SET STATUS='" + "Completed" + "' WHERE ID='" + orderID + "'";
+    public void editOrderStatus(String orderID, String editStatus) throws SQLException {
+        String sql = "UPDATE archive.orders SET STATUS='" + editStatus + "' WHERE ID='" + orderID + "'";
         st.executeUpdate(sql);
     }
 

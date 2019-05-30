@@ -29,7 +29,7 @@
                         <tr>
                             <%
                                 for (Orders o : orders) {
-                                    manager.confirmOrder(o.getID());
+                                    manager.editOrderStatus(o.getID(), "Completed");
                                 }
                             %>
                             <td><button style="margin-top:0px" type="submit">Process Customers Orders</button></td>
