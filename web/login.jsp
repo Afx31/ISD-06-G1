@@ -16,11 +16,9 @@
     </head>
     
     <body>
-        
         <div class="topnav">
           <a href="index.jsp"><b>The Archive</b></a>
         </div>
-
         <div class="content">
           <div class="centerbox">
             <h1>Welcome Back</h1>
@@ -41,7 +39,6 @@
             </div>
           </div>
         </div>
-
         <div class="footer">
           <p>Introduction to Software Development - 13217702, 12924991, 12747717, 13208297</p>
         </div>

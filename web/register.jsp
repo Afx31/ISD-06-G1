@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="topnav">
-            <a href="customerHome.jsp"><b>The Archive</b></a>
+            <a href="index.jsp"><b>The Archive</b></a>
         </div>
         <div class="content">
             <div class="centerbox2">
