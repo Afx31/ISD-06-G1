@@ -37,8 +37,10 @@
                 response.sendRedirect("confirmOrder");
             } else {
                 //set String value for Random Order Number ID
-                int tempRndID = (new Random()).nextInt(999999);
-                String orderID = Integer.toString(tempRndID);
+                
+                //////////int tempRndID = (new Random()).nextInt(999999);
+                //////////String orderID = Integer.toString(tempRndID);
+                String orderID = manager.generateRandomIDNumber();
 
                 //set value for User's ID
                 String userID = users.getID();
