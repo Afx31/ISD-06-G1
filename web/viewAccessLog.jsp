@@ -20,8 +20,8 @@
     <body>
         <%
             DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            dbManager manager = (dbManager)session.getAttribute("manager"); 
-            Users user = (Users)session.getAttribute("userLogin");
+            dbManager manager = (dbManager) session.getAttribute("manager");
+            Users user = (Users) session.getAttribute("userLogin");
             ArrayList<AccessLog> accesslog = manager.findAccessLogs(user.getID());
         %>
         <div class="topnav">
@@ -37,8 +37,8 @@
                 <% for (AccessLog al : accesslog) {%>
                 <tr>
                     <% LocalDateTime date1 = al.getLdt();
-                    String date2 = dft.format(date1);
-                    String[] dt = date2.split("T");%>
+                        String date2 = dft.format(date1);
+                        String[] dt = date2.split("T");%>
                     <th><%=dt[0]%></th>
                     <th><%=al.getEvent()%></th>
                     <th>
@@ -48,7 +48,7 @@
                         </form>
                     </th>
                 </tr>
-                <% } %>
+                <% }%>
             </table>
         </div>
     </body>

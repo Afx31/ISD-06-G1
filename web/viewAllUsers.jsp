@@ -17,8 +17,8 @@
     </head>
     <body>
         <%
-            dbManager manager = (dbManager)session.getAttribute("manager"); 
-            Users requester = (Users)session.getAttribute("userLogin");
+            dbManager manager = (dbManager) session.getAttribute("manager");
+            Users requester = (Users) session.getAttribute("userLogin");
             ArrayList<Users> users = manager.findAllUsers(requester);
         %>
         <div class="topnav">
@@ -46,7 +46,7 @@
                         </form>
                     </th>
                 </tr>
-                <% } %>
+                <% }%>
             </table>
         </div>
     </body>

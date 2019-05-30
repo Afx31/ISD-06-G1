@@ -10,14 +10,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>DeleteAccessLog</title>
+        <title>Delete Access Log</title>
     </head>
     <body>
         <%
-            dbManager manager = (dbManager)session.getAttribute("manager"); 
+            dbManager manager = (dbManager) session.getAttribute("manager");
             String id = request.getParameter("AccessLogID");
             manager.deleteLog(id);
-            response.sendRedirect("viewAccessLog.jsp"); 
+            response.sendRedirect("viewAccessLog.jsp");
         %>
     </body>
 </html>
