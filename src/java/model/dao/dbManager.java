@@ -86,8 +86,11 @@ public class dbManager {
         return user;
     }
     
-    public ArrayList<Users> findAllUsers() throws SQLException{
+    public ArrayList<Users> findAllUsers(Users requester) throws SQLException{
         String sql = "SELECT * FROM archive.users";
+        if(requester.getRole().equalsIgnoreCase("s")) {
+            sql = "SELECT * FROM archive.users WHERE Lower(ROLE) = 'c'";
+        }
         ResultSet rs = st.executeQuery(sql);
         ArrayList<Users> users = new ArrayList<>();
         while(rs.next()) {

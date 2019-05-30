@@ -18,7 +18,8 @@
     <body>
         <%
             dbManager manager = (dbManager)session.getAttribute("manager"); 
-            ArrayList<Users> users = manager.findAllUsers();
+            Users requester = (Users)session.getAttribute("userLogin");
+            ArrayList<Users> users = manager.findAllUsers(requester);
         %>
         <div class="topnav">
             <jsp:include page="header.jsp" flush="true" />
