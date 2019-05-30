@@ -23,8 +23,9 @@
                     <a href="cart.jsp">My Cart</a>
                     <a href="customerHome.jsp">Home</a>
             <%  } else if(user.getRole().equalsIgnoreCase("s") || user.getRole().equalsIgnoreCase("a")) {%>
+                    <a href="staffRegister.jsp">Register a User</a> 
                     <a href="viewAllUsers.jsp">View Users</a> 
-                    <a href="processCustomerOrders.jsp">Fulfil Customer Orders</a>
+                    <a href="processCustomerOrders.jsp">Fulfill Customer Orders</a>
                     <a href="staffHome.jsp">Home</a>
             <%  }%>
         <%} else { %>
