@@ -32,11 +32,11 @@
             manager.deleteMovie(id);
             Movie m = manager.findMovieID(id);
             %>
-                <p>Error! Movie not found</p>
+                <h1>Error! Movie not found</h1>
             <%
             
             } catch (Exception e) {%>
-                <p>Movie Deleted :(</p>
+                <h1>Movie Deleted :(</h1>
                 <a href="staffHome.jsp">Back to Add another movie</a>
             <%}%>  
     </div>

@@ -84,7 +84,6 @@ public class dbManager {
         ResultSet rs = st.executeQuery(sql);
         Users user = null;
         if (rs.next()) {
-            //System.out.println("after "+ rs.getString("EMAIL"));
             String id = rs.getString("ID");
             String fn = rs.getString("FIRSTNAME");
             String ln = rs.getString("LASTNAME");
@@ -153,8 +152,6 @@ public class dbManager {
         if (rs.next()) {
             rsCount = Integer.parseInt(rs.getString("ID")) + 1;
         }
-        //System.out.print("getID: "+rs.getString("ID"));
-        //System.out.print("rsCount: "+rsCount);
         String sql = "INSERT INTO archive.accesslog VALUES('" + rsCount + "', '" + ID + "', '" + dft.format(ldt) + "', '" + event + "')";
         st.executeUpdate(sql);
     }
@@ -185,7 +182,6 @@ public class dbManager {
             String datetime = rs.getString("DATETIME");
             String event = rs.getString("EVENT");
             String[] dt = datetime.split("\\.");
-            //String[] dt = dt1[0].split("T");
             AccessLog al = new AccessLog(id, uid, LocalDateTime.parse(dt[0], dft), event);
             accessLog.add(al);
         }
