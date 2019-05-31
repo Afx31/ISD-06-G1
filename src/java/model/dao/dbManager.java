@@ -245,7 +245,7 @@ public class dbManager {
 
             ArrayList<Orders> orders = findAllOrders();
             for (Orders order : orders) {
-                if (newID != order.getID()) {
+                if (!newID.equals(order.getID())) {
                     isMatch = false;
                     ID = newID;
                 }
