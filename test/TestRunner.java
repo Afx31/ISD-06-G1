@@ -6,17 +6,15 @@ import org.junit.runner.notification.Failure;
  *
  * @author jbrien
  */
+
 public class TestRunner {
     public static void main(String[] args) {
 
-    System.out.println("- Testing Calculator: ");
-
+    System.out.println("- Testing DB Manager: ");
     Result manager = JUnitCore.runClasses(testDBManager.class);
 
     for (Failure failure : manager.getFailures()) {
-
       System.out.println(failure.toString());
-
     }
 
     String status = manager.wasSuccessful() ? "Passed" : "Failed";
