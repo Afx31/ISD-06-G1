@@ -95,6 +95,7 @@ public class dbManager {
         }
         return user;
     }
+    
     /*
        Find all customers or all users depending on who is requesting it in the database
        First check the role of the requester and if it is just a staff set sql string to customers only
@@ -236,6 +237,10 @@ public class dbManager {
         st.executeUpdate(sql);
     }
 
+    /*
+        Generates a random number for the new Order's ID,
+        Once created it is then checked against existing Order ID's to ensure no duplicate
+    */
     public String generateRandomIDNumber() throws SQLException {
         boolean isMatch = true;
         String ID = "";
@@ -254,6 +259,10 @@ public class dbManager {
         return ID;
     }
 
+    /*
+        Adds a new Order to the database table ORDER. All values are passed in through the method
+        apart from the date of when the order is created, that is created in the method    
+    */
     public void addOrder(String ID, String userID, String status, String payment, String totalCost) throws SQLException {
         DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime ldt = LocalDateTime.now();
@@ -261,6 +270,9 @@ public class dbManager {
         st.executeUpdate(sql);
     }
 
+    /*
+        Pulls all Orders from the ORDER table and stores into an ArrayList to be displayed in a table view on the website
+    */
     public ArrayList<Orders> findAllOrders() throws SQLException {
         String sql = "SELECT * FROM archive.orders";
         ResultSet rs = st.executeQuery(sql);
@@ -278,6 +290,10 @@ public class dbManager {
         return orders;
     }
 
+    /*
+        Pulls all Users from the USER table which match the UserID passed through the method.
+        If the match is true, it will store that users details into an ArrayList to be used in the website
+    */
     public ArrayList<Orders> findAllUserOrders(String userID) throws SQLException {
         String sql = "SELECT * FROM archive.orders WHERE userID = '" + userID + "'";
         ResultSet rs = st.executeQuery(sql);
@@ -295,6 +311,11 @@ public class dbManager {
         return orders;
     }
 
+    /*
+        Pulls all Orders from the ORDER table which have the Sttatus of "Processing", 
+        this is so the Staff can fulfil any outstanding customers orders.
+        The orders are stored into an ArrayList to be displayed in a table view on the website
+    */
     public ArrayList<Orders> findProcessingOrders() throws SQLException {
         String sql = "SELECT * FROM archive.orders WHERE STATUS = '" + "Processing" + "'";
         ResultSet rs = st.executeQuery(sql);
@@ -312,16 +333,27 @@ public class dbManager {
         return orders;
     }
 
+    /*
+        Updates a Order Status in the ORDER table if the Orders ID matches
+    */
     public void editOrderStatus(String orderID, String editStatus) throws SQLException {
         String sql = "UPDATE archive.orders SET STATUS='" + editStatus + "' WHERE ID='" + orderID + "'";
         st.executeUpdate(sql);
     }
 
+    /*
+        Add's the Order into the MOVIEORDER table, which displays each movie inside the order
+    */
     public void addMovieOrder(String orderID, String movieID, String quantity) throws SQLException {
         String sql = "INSERT INTO archive.movieorder VALUES('" + orderID + "', '" + movieID + "', '" + quantity + "')";
         st.executeUpdate(sql);
     }
 
+    /*
+        Pulls all Orders from the MOVIEORDER table if it matches the OrderID passed to the method.
+        It is matched from the Order table through the UserID so the user can view all their Orders including
+        the movies in each, on the website
+    */
     public ArrayList<MovieOrder> findAllUserMovieOrders(String orderIDSearch) throws SQLException {
         String sql = "SELECT * FROM archive.movieorder WHERE orderid = '" + orderIDSearch + "'";
         ResultSet rs = st.executeQuery(sql);
