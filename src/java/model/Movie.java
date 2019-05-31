@@ -46,8 +46,4 @@ public class Movie implements Serializable {
     
     public String getPublished() { return published; }    
     public void setPublished(String published) { this.published = published; }
-    
-    
-    /*public String getImage() { return image; }    
-    public void setImage(String image) { this.image = image; }*/
 }
