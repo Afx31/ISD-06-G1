@@ -16,7 +16,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="CSS/main.css">
 </head>
-
 <%
     String id = request.getParameter("id");
     String title = request.getParameter("title");
@@ -26,14 +25,12 @@
     String stock = request.getParameter("stock");
     String published = request.getParameter("published");
 %>
-
 <body>
     <div class="topnav">
         <jsp:include page="header.jsp" flush="true" />
     </div>
     <div>
         <%
-       
             dbManager manager = (dbManager)session.getAttribute("manager");
             try {manager.addMovie(id,genre,director,price,stock,title,published);%>
                 <p style="text-align: center">Movie Added!</p>
@@ -41,12 +38,7 @@
                 <p style="text-align: center">Error! Movie could not be added. ID already exists?</p>
             <%}
         %>
-        
         <a style="text-align: center" href="staffHome.jsp">Back to manage movies</a>
-        
-    </div>
-    
-    
-    
+    </div>  
 </body>
 </html>
