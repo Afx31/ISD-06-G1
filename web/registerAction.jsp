@@ -25,11 +25,13 @@
             String password = request.getParameter("r_password");
             String Cpassword = request.getParameter("r_Cpassword");
             String tos = request.getParameter("r_tos");
-            if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || Cpassword.isEmpty()) {
+            if(firstname.length() >= 20 || lastname.length() >= 20 || phone.length() >= 11 || password.length() >= 30 || email.length() >= 90) {
+                session.setAttribute("invalidInput", "A field is over the maximum length");
+                response.sendRedirect("register.jsp");
+            } else if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || Cpassword.isEmpty()) {
                 session.setAttribute("invalidInput", "Fill in all Fields");
                 response.sendRedirect("register.jsp");
-            }
-            else if (tos == null) {
+            } else if (tos == null) {
                 session.setAttribute("invalidInput", "Please agree to TOS");
                 response.sendRedirect("register.jsp");
             } else if (password.equals(Cpassword)) {

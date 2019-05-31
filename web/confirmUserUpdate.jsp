@@ -27,8 +27,10 @@
                 String password = request.getParameter("password");
                 String email = request.getParameter("email");
                 dbManager manager = (dbManager) session.getAttribute("manager");
-                
-                if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty()) {
+                if(firstname.length() >= 20 || lastname.length() >= 20 || phone.length() >= 11 || password.length() >= 30 || email.length() >= 90) {
+                    session.setAttribute("invalidInput", "A field is over the maximum length");
+                    response.sendRedirect("updateDetails.jsp");
+                } else if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty()) {
                     session.setAttribute("invalidInput", "Fill in all Fields");
                     response.sendRedirect("updateDetails.jsp");
                 } else if (!phone.matches("[0-9]+")) {
