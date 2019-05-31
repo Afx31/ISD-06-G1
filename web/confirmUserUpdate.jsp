@@ -27,10 +27,19 @@
                 String password = request.getParameter("password");
                 String email = request.getParameter("email");
                 dbManager manager = (dbManager) session.getAttribute("manager");
-                manager.updateUser(id, firstname, lastname, phone, password, email);
-                Users updatedUser = manager.findUser(email);
-                session.setAttribute("userLogin", updatedUser);                
-                response.sendRedirect("myAccount.jsp");
+                
+                if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty()) {
+                    session.setAttribute("invalidInput", "Fill in all Fields");
+                    response.sendRedirect("updateDetails.jsp");
+                } else if (!phone.matches("[0-9]+")) {
+                    session.setAttribute("invalidInput", " Phone is not a number ");
+                    response.sendRedirect("updateDetails.jsp");
+                } else {
+                    manager.updateUser(id, firstname, lastname, phone, password, email);
+                    Users updatedUser = manager.findUser(email);
+                    session.setAttribute("userLogin", updatedUser);                
+                    response.sendRedirect("myAccount.jsp");
+                }
             %>
     </body>
 </html>

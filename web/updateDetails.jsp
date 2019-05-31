@@ -3,6 +3,7 @@
 <%@page import="java.util.*"%>
 <%@page import="model.*" import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="model.*"%>
 <!DOCTYPE html>
 <html>
@@ -31,8 +32,14 @@
                     <input type="text" id="password" name="password" placeholder = "password" value="<%= user.getPassword()%>">
                     <button type="submit">Update</button>                    
                 </form>
+                <div class="invalidInput">
+                    <c:if test="${invalidInput!=null}"> 
+                        <p><b> <c:out value="${invalidInput}"/> </b></p> 
+                    </c:if>
+                </div>
             </div>
         </div>
         <%}%>     
+        ${invalidInput = null} 
     </body>
 </html>
